@@ -5,5 +5,6 @@ class Article
   field :buying_date => Time
   field :barcode => String
   belongs_to :producer
+  belongs_to :distributor
 
 end

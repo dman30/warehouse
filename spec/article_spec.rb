@@ -5,7 +5,10 @@ describe Article do
   before :each do
     date = Time.new(2001,2,3,4,5,6).utc
     exp_date = Time.new(2001,2,3,4,5,6).utc
+
     producer = Producer.new
+    distributor = Distributor.new
+
     @article = Article.new(
       :name => "Foo",
       :buying_date => date,
@@ -16,6 +19,7 @@ describe Article do
       :category => "Monitor"
     )
     @article.producer = producer
+    @article.distributor = distributor
     @article.save
   end
 
@@ -52,6 +56,11 @@ describe Article do
   context "Associations" do
     it "should have a producer" do
       @article.producer.should_not be_nil
+    end
+
+    it "should have a distributor" do
+      @article.distributor.should_not be_nil
+
     end
   end
 end
