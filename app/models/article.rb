@@ -6,5 +6,6 @@ class Article
   field :barcode => String
   belongs_to :producer
   belongs_to :distributor
+  belongs_to :employee
 
 end
