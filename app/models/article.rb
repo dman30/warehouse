@@ -2,9 +2,8 @@ class Article
   include Mongoid::Document
 
   field :name, :type => String
-  field :buying_date => DateTime
+  field :buying_date => Time
   field :barcode => String
-
-  # attr_reader :name, :buying_date
+  belongs_to :producer
 
 end
