@@ -3,8 +3,8 @@ require 'spec_helper'
 describe Article do
 
   before :each do
-    date = Time.new(2001,2,3,4,5,6).utc
-    exp_date = Time.new(2001,2,3,4,5,6).utc
+    date = Time.new.utc
+    exp_date = Time.new.utc
 
     producer = Producer.new
     distributor = Distributor.new

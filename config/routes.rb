@@ -1,4 +1,6 @@
 Warehouse::Application.routes.draw do
+  resources :employees
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -12,6 +14,8 @@ Warehouse::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+
+	resources :articles
 
   # Sample resource route with options:
   #   resources :products do
