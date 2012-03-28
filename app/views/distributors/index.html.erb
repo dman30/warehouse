@@ -1,0 +1,17 @@
+<h1>Listing Distributors</h1>
+
+<table>
+
+<% @distributors.each do |distributor| %>
+	<tr>
+		<td><%= link_to 'Show', distributor %></td>
+		<td><%= link_to 'Edit', edit_distributor_path(distributor) %></td>
+		<td><%= link_to 'Destroy', distributor, :confirm => 'Are you sure?', :method => :delete %></td>
+	</tr>
+<% end %>
+
+</table>
+
+<br />
+
+<%= link_to 'New Distributor', new_distributor_path %>

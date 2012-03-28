@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe Employee do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it "should know its articles" do
+    employee = Employee.new
+    employee.articles.should be_kind_of(Array)
+  end
 end
