@@ -23,4 +23,5 @@ gem 'jquery-rails'
 group :development, :test do
   gem "rspec-rails", ">= 2.8.0.rc1"
   gem "mongoid-rspec", ">= 1.4.4"
+  gem "webrat", ">= 0.7.2"
 end
