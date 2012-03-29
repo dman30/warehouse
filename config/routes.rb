@@ -1,4 +1,6 @@
 Warehouse::Application.routes.draw do
+  resources :users
+
   resources :articles
  	resources :contacts
  	resources :distributors
