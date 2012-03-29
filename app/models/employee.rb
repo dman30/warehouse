@@ -3,4 +3,5 @@ class Employee
   
 	belongs_to :contact
   has_many :articles
+  
 end
