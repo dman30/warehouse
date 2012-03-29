@@ -3,7 +3,7 @@ development:
   database: warehouse_development
 
 test:
-  host: 192.168.2.138
+  host: localhost
   database: warehouse_test
 
 # set these environment variables on your prod server
