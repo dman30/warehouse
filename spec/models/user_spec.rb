@@ -8,12 +8,29 @@ describe User do
     end
 
     it "should be invalid without a username" do
-      @user.should have(1).error_on(:username)
-    end
-
-    it "should be valid with username" do
+    	@user.email = 'joe@bloggs.com'
+    	@user.password = 'abcdefg'
+      @user.should_not be_valid
+      @user.errors[:username].first.should eq("is required")
       @user.username = 'someusername'
-      @user.should have(:no).error_on(:username)
+      @user.should be_valid
     end
+    
+    it "should be invalid without an email" do
+    	@user.username = 'joebloggs'
+    	@user.password = 'abcdefg'
+    	@user.should_not be_valid
+    	@user.errors[:email].first.should eq("is required")
+    	@user.email = 'joe@bloggs.com'
+    	@user.should be_valid
+    end
+    
+    it "should be invalid without a password" do
+    	@user.email = 'joe@bloggs.com'
+    	@user.username = 'joebloggs'
+    	@user.should_not be_valid
+    	@user.password = 'abcdefg'
+    	@user.should be_valid
+   	end
   end
 end
