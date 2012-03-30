@@ -8,7 +8,7 @@ class User
   	field :password, :type => String
   
   	validates_presence_of :username, :message => "is required"
-	validates_presence_of :email, :message => "is required"
-	validates_presence_of :password
+		validates_presence_of :email, :message => "is required"
+		validates_presence_of :password
 	
 end
