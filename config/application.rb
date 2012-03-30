@@ -55,5 +55,8 @@ module Warehouse
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Tells Rails to autoload classes defined in files in the lib directory
+    config.autoload_paths += %W( #{config.root}/lib )
   end
 end
