@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe User do
+  
   before :each do
     @user = User.new(
       :email => "user@mail.com",
@@ -9,23 +10,25 @@ describe User do
     )
   end
 
-  it "is valid with valid attributes" do
-    @user.should be_valid
-  end
-  
-  it "is not valid without an email" do
-    @user.email = nil
-    @user.should_not be_valid
-  end
+  context "Attributes" do
 
-  it "is not valid without a password" do
-    @user.password = nil
-    @user.should_not be_valid
-  end
+    it "should be valid with all valid attributes" do
+      @user.should be_valid
+    end
+    
+    it "should not be valid without an email" do
+      @user.email = nil
+      @user.should_not be_valid
+    end
 
-  it "is not valid without a contact" do
-    @user.contact = nil
-    @user.should_not be_valid
-  end
+    it "should not be valid without a password" do
+      @user.password = nil
+      @user.should_not be_valid
+    end
 
+    it "should not be valid without a contact" do
+      @user.contact = nil
+      @user.should_not be_valid
+    end
+  end
 end
