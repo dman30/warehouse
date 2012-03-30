@@ -2,64 +2,59 @@ require 'spec_helper'
 
 describe Article do
 
-  before :each do
-    date = Time.new.utc
-    exp_date = Time.new.utc
-
-    producer = Producer.new
-    distributor = Distributor.new
+  before :each do 
+    purch_date = Time.new.utc
+    warr_exp = Time.new.utc
 
     @article = Article.new(
-      :name => "Foo",
-      :buying_date => date,
-      :barcode => '12345',
-      :serial_no => '12345',
-      :expiration_date => exp_date,
-      :position => "not here",
-      :category => "Monitor"
+      :name => "aticle name",
+      :serial_no => 'a12b3',
+      :barcode => '01010',
+      :producer => mock_model("Producer").as_null_object,
+      :distributor => mock_model("Distributor").as_null_object,
+      :purchase_date => purch_date,
+      :warranty_expiration => warr_exp
     )
-    @article.producer = producer
-    @article.distributor = distributor
-    @article.save
   end
 
   context "Attributes" do
-    it "should have a name" do
-      @article[:name].should be_kind_of(String)
+    it "should be valid with all valid attributes" do
+      @article.should be_valid
     end
 
-    it "should have a buying date" do
-      @article[:buying_date].should be_kind_of(Time)
+    it "should not be valid without a name" do
+      @article.name = nil
+      @article.should_not be_valid
     end
 
-    it "should have a barcode" do
-      @article[:barcode].should be_kind_of(String)
+    it "should not be valid without a serial_no" do
+      @article.serial_no = nil
+      @article.should_not be_valid
     end
 
-    it "should have a serial number" do
-      @article[:serial_no].should be_kind_of(String)
+    it "should not be valid without a bacode" do
+      @article.barcode = nil
+      @article.should_not be_valid
     end
 
-    it "should have an expiration date" do
-      @article[:expiration_date].should be_kind_of(Time)
+    it "should not be valid without a producer" do
+      @article.producer = nil
+      @article.should_not be_valid
     end
 
-    it "should have a position" do
-      @article[:position].should be_kind_of(String)
+    it "should not be valid without a distributor" do
+      @article.distributor = nil
+      @article.should_not be_valid
     end
 
-    it "should have a category" do
-      @article[:category].should be_kind_of(String)
-    end
-  end
-
-  context "Associations" do
-    it "should have a producer" do
-      @article.producer.should_not be_nil
+    it "should not be valid without a purchase_date" do
+      @article.purchase_date = nil
+      @article.should_not be_valid
     end
 
-    it "should have a distributor" do
-      @article.distributor.should_not be_nil
+    it "should not be valid without a warranty_expiration" do
+      @article.warranty_expiration = nil
+      @article.should_not be_valid
     end
   end
 end
