@@ -82,9 +82,12 @@ class UsersController < ApplicationController
 #   end
 
   def create
-    user = User.new(params[:user])
-    user.save
-    redirect_to :action => "index"
+    @user = User.new(params[:user])
+    if @user.save
+    	flash[:notice] = "The user was saved successfully."
+    	redirect_to :action => "index"
+    else
+    	render :action => "new"
+    end
   end
-
 end
