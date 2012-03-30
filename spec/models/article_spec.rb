@@ -7,7 +7,7 @@ describe Article do
     warr_exp = Time.new.utc
 
     @article = Article.new(
-      :name => "aticle name",
+      :name => "article name",
       :serial_no => 'a12b3',
       :barcode => '01010',
       :producer => mock_model("Producer").as_null_object,
