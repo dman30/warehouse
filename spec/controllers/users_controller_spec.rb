@@ -178,14 +178,36 @@ describe UsersController do
       post :create, :user => { "name" => "user name" }
     end
 
-    it "saves the user" do
-      user.should_receive(:save)
-      post :create
+    context "when the user saves succesfully" do
+      before do
+        user.stub(:save).and_return(true)
+      end
+      # it "sets a flash[:notice] message"
+      it "sets a flash[:notice] message" do
+        post :create
+        flash[:notice].should eq("The user was saved successfully.")
+      end
+
+      it "redirects to the Users index" do
+        post :create
+        response.should redirect_to(:action => "index")
+      end
     end
 
-    it "redirects to the Users index" do
-      post :create
-      response.should redirect_to(:action => "index")
+    context "when the user fails to save" do
+      before do
+        user.stub(:save).and_return(false)
+      end
+
+      it "assigns @user" do
+        post :create
+        assigns[:user].should eq(user)
+      end
+
+      it "renders the new template" do
+        post :create
+        response.should render_template("new")
+      end
     end
   end
 end
