@@ -1,8 +1,8 @@
 class Article
   include Mongoid::Document
 
-  # belongs_to :producer
-  # belongs_to :distributor
+  belongs_to :producer
+  belongs_to :distributor
   # belongs_to :employee
 
   field :category, :type => String
@@ -15,6 +15,7 @@ class Article
   field :note, :type => String
 
   validates_presence_of :category, :name, :barcode, :serial_no, 
-    :purchase_date, :installation_date, :warranty_expiration, :note
+    :purchase_date, :installation_date, :warranty_expiration, :note,
+    :producer
 
 end

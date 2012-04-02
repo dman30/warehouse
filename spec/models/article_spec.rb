@@ -16,7 +16,8 @@ describe Article do
       :purchase_date, 
       :installation_date, 
       :warranty_expiration,
-      :note
+      :note,
+      :producer
       ].each do |attribute|
 
       it "should not be valid without a #{attribute}" do
@@ -24,5 +25,22 @@ describe Article do
       end
     end
 
+    it "should have a producer" do
+      article = Article.new(
+        :category => "category",
+        :name => "name",
+        :barcode => "01010",
+        :serial_no => "a12b3",
+        :purchase_date => "01.01.2012",
+        :installation_date => "01.04.2012",
+        :warranty_expiration => "01.01.2014",
+        :note => "note",
+      )
+      article.producer = Producer.new
+      article.save
+      article.producer.should be_valid
+    end
   end
+
+
 end
