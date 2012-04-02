@@ -18,15 +18,18 @@ describe Article do
       :warranty_expiration,
       :note,
       :producer
-      ].each do |attribute|
+    ].each do |attribute|
 
       it "should not be valid without a #{attribute}" do
         @article.should have(1).error_on(attribute)
       end
     end
+  end
 
-    it "should have a producer" do
-      article = Article.new(
+  context "Association" do
+
+    before :each do
+      @article = Article.new(
         :category => "category",
         :name => "name",
         :barcode => "01010",
@@ -36,11 +39,20 @@ describe Article do
         :warranty_expiration => "01.01.2014",
         :note => "note",
       )
-      article.producer = Producer.new
-      article.save
-      article.producer.should be_valid
+    end
+
+    it "should have a producer" do
+      producer = Producer.new
+      @article.producer = producer
+      @article.save
+      @article.producer.id.should == producer.id
+    end
+
+    it "should have a producer" do
+      distributor = Distributor.new
+      @article.distributor = distributor
+      @article.save
+      @article.distributor.id.should == distributor.id
     end
   end
-
-
 end
