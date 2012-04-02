@@ -6,11 +6,16 @@
 <% @articles.each do |article| %>
 	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 
-		<td class="list_category_and_name">
-			<dl>
-				<dt><%= article.category %></dt>
-				<dd><%= article.name %></dd>
-			</dl>
+		<td class="list_category">
+			<%= article.category %>
+		</td>
+
+		<td class="list_name">
+				<%= article.name %>
+		</td>
+
+		<td class="list_producer">
+				<%= article.producer.nil? ? "Kein Hersteller angegeben" : article.producer.name %>
 		</td>
 
 		<td class="list_actions">
