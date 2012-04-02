@@ -17,8 +17,9 @@
   </div>
 
   <div class="field">
-    <%= f.label :producer %><br />
-    <%= f.text_field :producer %>
+    <%= f.label :producer %><br />  
+    <%= f.select :producer_id, Producer.all.collect {|x| [x.name, x.id]}, {} %>
+    <!-- collection_select(:company, :country_id, Country.all, :id, :name, :prompt => 'Please select country') -->
   </div>
 
   <div class="field">
