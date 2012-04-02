@@ -3,7 +3,7 @@ class Article
 
   belongs_to :producer
   belongs_to :distributor
-  # belongs_to :employee
+  belongs_to :employee
 
   field :category, :type => String
   field :name, :type => String
@@ -15,7 +15,7 @@ class Article
   field :note, :type => String
 
   validates_presence_of :category, :name, :barcode, :serial_no, 
-    :purchase_date, :installation_date, :warranty_expiration, :note,
-    :producer
+    :purchase_date, :installation_date, :warranty_expiration,
+    :producer, :distributor
 
 end

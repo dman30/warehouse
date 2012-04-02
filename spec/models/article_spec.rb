@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe Article do
 
+  before :all do
+    Article.delete_all
+  end
+
   context "Validation" do
 
     before :each do 
@@ -16,13 +20,20 @@ describe Article do
       :purchase_date, 
       :installation_date, 
       :warranty_expiration,
-      :note,
-      :producer
+      :producer,
+      :distributor
     ].each do |attribute|
 
       it "should not be valid without a #{attribute}" do
         @article.should have(1).error_on(attribute)
       end
+    end
+  end
+
+  context "Response" do
+    it "should respond to note" do
+      @article = Article.new
+      @article.should respond_to(:note)
     end
   end
 
@@ -36,8 +47,7 @@ describe Article do
         :serial_no => "a12b3",
         :purchase_date => "01.01.2012",
         :installation_date => "01.04.2012",
-        :warranty_expiration => "01.01.2014",
-        :note => "note",
+        :warranty_expiration => "01.01.2014"
       )
     end
 
@@ -48,11 +58,18 @@ describe Article do
       @article.producer.id.should == producer.id
     end
 
-    it "should have a producer" do
+    it "should have a distributor" do
       distributor = Distributor.new
       @article.distributor = distributor
       @article.save
       @article.distributor.id.should == distributor.id
+    end
+
+    it "should have a employee" do
+      employee = Employee.new
+      @article.employee = employee
+      @article.save
+      @article.employee.id.should == employee.id
     end
   end
 end
