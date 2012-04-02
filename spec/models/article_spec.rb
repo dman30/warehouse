@@ -18,7 +18,6 @@ describe Article do
       :barcode, 
       :serial_no, 
       :purchase_date, 
-      :installation_date, 
       :warranty_expiration,
       :producer,
       :distributor
@@ -31,9 +30,16 @@ describe Article do
   end
 
   context "Response" do
-    it "should respond to note" do
+    before :each do
       @article = Article.new
+    end
+
+    it "should respond to note" do
       @article.should respond_to(:note)
+    end
+
+    it "should respond to installation_date" do
+      @article.should respond_to(:installation_date)
     end
   end
 
@@ -46,7 +52,6 @@ describe Article do
         :barcode => "01010",
         :serial_no => "a12b3",
         :purchase_date => "01.01.2012",
-        :installation_date => "01.04.2012",
         :warranty_expiration => "01.01.2014"
       )
     end
@@ -71,5 +76,7 @@ describe Article do
       @article.save
       @article.employee.id.should == employee.id
     end
+
+    # it{should belong_to(:producer)}
   end
 end
