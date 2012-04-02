@@ -5,35 +5,16 @@ class Article
   # belongs_to :distributor
   # belongs_to :employee
 
-  # validates_presence_of :category, :name, :serial_no, :barcode, :producer, :distributor,
-  # 	:purchase_date, :warranty_expiration
+  field :category, :type => String
+  field :name, :type => String
+  field :barcode, :type => String
+  field :serial_no, :type => String
+  field :purchase_date, :type => String
+  field :installation_date, :type => String
+  field :warranty_expiration, :type => String
+  field :note, :type => String
 
-  def category
-  	@category
-  end
-
-  def name
-  	@name
-  end
-
-  def serial_no
-  	@serial_no
-  end
-
-  def barcode
-  	@barcode
-  end
-
-  def purchase_date
-  	@purchase_date
-  end
-
-  def warranty_expiration
-  	@warranty_expiration
-  end
-
-  def note
-  	@note
-  end
+  validates_presence_of :category, :name, :barcode, :serial_no, 
+    :purchase_date, :installation_date, :warranty_expiration, :note
 
 end
