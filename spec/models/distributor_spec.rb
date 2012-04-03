@@ -8,7 +8,7 @@ describe Distributor do
 
 	context "Validation" do
 		before :each do
-			@distributor = Factory(:distributor)
+			@distributor = FactoryGirl.create(:distributor)
 		end
 
 		it "should not be valid without a name" do
@@ -19,7 +19,7 @@ describe Distributor do
 
 	context "Response" do
     before :each do
-      @distributor = Factory(:distributor)
+      @distributor = FactoryGirl.create(:distributor)	
     end
 
     it "should respond to note" do

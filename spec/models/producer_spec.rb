@@ -9,7 +9,7 @@ describe Producer do
 
 	context "Validation" do
 		before :each do
-			@producer = Factory(:producer)
+			@producer = FactoryGirl.create(:producer)
 		end
 
 		it "should not be valid without a name" do
