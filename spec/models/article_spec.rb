@@ -2,8 +2,10 @@ require 'spec_helper'
 
 describe Article do
 
-  before :all do
+  before :each do
     Article.delete_all
+    Producer.delete_all
+    Distributor.delete_all
   end
 
   context "Validation" do
@@ -30,7 +32,7 @@ describe Article do
 
   context "Response" do
     before :each do
-      @article = Article.new
+      @article = FactoryGirl.create(:article)
     end
 
     it "should respond to note" do
@@ -45,32 +47,25 @@ describe Article do
   context "Association" do
 
     before :each do
-      @article = Article.new(
-        :category => "category",
-        :name => "name",
-        :barcode => "01010",
-        :serial_no => "a12b3",
-        :purchase_date => "01.01.2012",
-        :warranty_expiration => "01.01.2014"
-      )
+      @article = FactoryGirl.create(:article)
     end
 
     it "should have a producer" do
-      producer = Producer.new
+      producer = FactoryGirl.create(:producer)
       @article.producer = producer
       @article.save
       @article.producer.id.should == producer.id
     end
 
     it "should have a distributor" do
-      distributor = Distributor.new
+      distributor = FactoryGirl.create(:distributor)
       @article.distributor = distributor
       @article.save
       @article.distributor.id.should == distributor.id
     end
 
-    it "should have a employee" do
-      employee = Employee.new
+    it "should have an employee" do
+      employee = FactoryGirl.create(:employee)
       @article.employee = employee
       @article.save
       @article.employee.id.should == employee.id
