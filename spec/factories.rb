@@ -20,6 +20,17 @@ FactoryGirl.define do
   	f.sequence(:name) { |n| "distributor#{n}" }
   end
 
+  factory :employee do |f| 
+    f.sequence(:name) { |n| "employee#{n}" }
+    f.location "office_no"
+
+    #f.association :contact, :factory => :contact
+  end
+
+  # factory :contact do |f|
+    
+  # end
+
   # http://railscasts.com/episodes/158-factories-not-fixtures?autoplay=true
   factory :user do |f|
     f.sequence(:username) { |n| "user#{n}" }
