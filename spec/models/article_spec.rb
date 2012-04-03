@@ -75,7 +75,5 @@ describe Article do
       @article.save
       @article.employee.id.should == employee.id
     end
-
-    # it{should belong_to(:producer)}
   end
 end
