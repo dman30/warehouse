@@ -1,8 +1,8 @@
 FactoryGirl.define do
   
   factory :article do |f|
-    f.name 'Name'
-    f.category  'category'
+    f.sequence(:name) { |n| "article#{n}" } 
+    f.category 'category'
     f.barcode 'barcode'
     f.serial_no '213'
     f.purchase_date '1.1.2100'
@@ -13,11 +13,11 @@ FactoryGirl.define do
   end
 
   factory :producer do |f|
-  	f.name 'Hallo'
+  	f.sequence(:name) { |n| "producer#{n}" }
   end
 
   factory :distributor do |f|
-  	f.name 'Hallo'
+  	f.sequence(:name) { |n| "distributor#{n}" }
   end
 
   # http://railscasts.com/episodes/158-factories-not-fixtures?autoplay=true
