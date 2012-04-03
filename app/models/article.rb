@@ -14,7 +14,8 @@ class Article
   field :warranty_expiration, :type => String
   field :note, :type => String
 
-  validates_presence_of :category, :name, :barcode, :serial_no, 
+  validates_presence_of :category, 
+    :name, :barcode, :serial_no, 
     :purchase_date, :warranty_expiration,
     :producer, :distributor
 
