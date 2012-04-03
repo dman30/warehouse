@@ -1,31 +1,42 @@
 require 'spec_helper'
 
 describe Producer do
-	
+
 	before :each do
-    @article = Article.new(
-      :category => "category",
-      :name => "name",
-      :barcode => "01010",
-      :serial_no => "a12b3",
-      :purchase_date => "01.01.2012",
-      :warranty_expiration => "01.01.2014"
-      )
+    Producer.delete_all
+		Distributor.delete_all
+  end
+
+	context "Validation" do
+		before :each do
+			@producer = Factory(:producer)
+		end
+
+		it "should not be valid without a name" do
+			@producer.name = nil
+			@producer.should have(1).error_on(:name)
+		end
+	end
+
+	context "Response" do
+    before :each do
+      @producer = FactoryGirl.create(:producer)
     end
 
-	it "should have Articles" do
-		article1 = Factory(:article)
-		article2 = Factory(:article)
-		article3 = Factory(:article)
+    it "should respond to note" do
+      @producer.should respond_to(:note)
+    end
+  end
 
-		producer = Producer.create
-		producer.articles << [article1, article2, article3]
-		producer.save
+	context "Association" do
+		it "should have Articles" do
+			created_articles = FactoryGirl.create_list(:article, 3)
 
-		producer.articles.count.should == 3
+			producer = FactoryGirl.create(:producer)
+			producer.articles << created_articles
+			producer.save
+
+			producer.articles.count.should == 3
+		end
 	end
-	# it 'bla' do
-	# 	debugger
-	# 	should have_many(:articles)
-	# end
 end
