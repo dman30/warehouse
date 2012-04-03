@@ -12,8 +12,7 @@ describe Article do
       @article = Article.create
     end
 
-    [
-      :category, 
+    [ :category, 
       :name, 
       :barcode, 
       :serial_no, 
