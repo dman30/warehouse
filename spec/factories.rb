@@ -27,9 +27,19 @@ FactoryGirl.define do
     #f.association :contact, :factory => :contact
   end
 
-  # factory :contact do |f|
-    
-  # end
+  factory :contact do |f|
+    f.gender 'male'
+    f.sequence(:first_name) { |n| "first_name#{n}" }
+    f.sequence(:last_name) { |n| "last_name#{n}" }
+    f.sequence(:company_name) { |n| "company#{n}" }
+    f.sequence(:phone) { |n| "#{n}#{n}#{n}/#{n}#{n}#{n}#{n}#{n}#{n}" }
+    f.sequence(:mobile) { |n| "#{n}#{n}#{n}#{n}/#{n}#{n}#{n}#{n}#{n}#{n}#{n}#{n}" }
+    f.email { "#{first_name}.#{last_name}@#{company_name}.com".downcase }
+    f.sequence(:street1) { |n| "#{n}street #{n}" }
+    f.sequence(:zipcode) { |n| "#{n}#{n}#{n}#{n}#{n}" }
+    f.sequence(:town) { |n| "town#{n}" }
+    f.sequence(:country) { |n| "country#{n}" }
+  end
 
   # http://railscasts.com/episodes/158-factories-not-fixtures?autoplay=true
   factory :user do |f|
