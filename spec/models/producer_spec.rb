@@ -18,12 +18,14 @@ describe Producer do
 		article2 = Factory(:article)
 		article3 = Factory(:article)
 
-		debugger
 		producer = Producer.create
 		producer.articles << [article1, article2, article3]
 		producer.save
 
 		producer.articles.count.should == 3
 	end
-	# it { should have_many(:articles) }
+	# it 'bla' do
+	# 	debugger
+	# 	should have_many(:articles)
+	# end
 end
