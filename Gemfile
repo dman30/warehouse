@@ -11,6 +11,8 @@ gem "omniauth-oauth2"
 gem "omniauth-kaeuferportal"
 gem 'spork', '~> 0.9.0.rc'
 
+gem 'bootstrap-sass', '2.0.0'
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
