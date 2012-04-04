@@ -29,7 +29,7 @@
 
   <div class="field">
     <%= f.label :distributor %><br />
-    <%= f.text_field :distributor %>
+    <%= f.select :distributor, Distributor.all.collect {|x| [x.name, x.id]}, {} %>
   </div>
 
   <div class="field">
