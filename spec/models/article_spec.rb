@@ -11,7 +11,7 @@ describe Article do
   context "Validation" do
 
     before :each do 
-      @article = Article.create
+      @article = FactoryGirl.create(:article)
     end
 
     [ :category, 
@@ -25,6 +25,7 @@ describe Article do
     ].each do |attribute|
 
       it "should not be valid without a #{attribute}" do
+        @article.send("#{attribute}=", nil)
         @article.should have(1).error_on(attribute)
       end
     end
