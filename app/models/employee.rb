@@ -4,8 +4,8 @@ class Employee
 	belongs_to :contact
   has_many :articles
 
-  field :name, :type => String
   field :location, :type => String
+  field :note, :type => String
 
   validates_presence_of :location#, :contact
   
