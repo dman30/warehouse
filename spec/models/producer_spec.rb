@@ -38,5 +38,9 @@ describe Producer do
 
 			producer.articles.count.should == 3
 		end
+
+		it "should have a Contact" do
+			pending
+		end
 	end
 end
