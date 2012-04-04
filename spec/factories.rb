@@ -21,10 +21,7 @@ FactoryGirl.define do
   end
 
   factory :employee do |f| 
-    f.sequence(:name) { |n| "employee#{n}" }
     f.location "office_no"
-
-    #f.association :contact, :factory => :contact
   end
 
   factory :contact do |f|
