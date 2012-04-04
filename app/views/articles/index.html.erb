@@ -1,37 +1,37 @@
 <div id="article_list">
-<h1>Listing Articles</h1>
+	<h1>Listing Articles</h1>
 
-<table>
-	<tr>
-		<th>Category</th>
-		<th>Name</th>
-		<th>Producer</th>
-		<th>Actions</th>
-	</tr>
-<% @articles.each do |article| %>
-	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+	<table>
+		<tr>
+			<th>Category</th>
+			<th>Name</th>
+			<th>Producer</th>
+			<th>Actions</th>
+		</tr>
+	<% @articles.each do |article| %>
+		<tr>
 
-		<td class="list_category">
-			<%= article.category %>
-		</td>
+			<td class="list_category">
+				<%= article.category %>
+			</td>
 
-		<td class="list_name">
-				<%= article.name %>
-		</td>
+			<td class="list_name">
+					<%= article.name %>
+			</td>
 
-		<td class="list_producer">
-				<%= article.producer.nil? ? "Kein Hersteller angegeben" : article.producer.name %>
-		</td>
+			<td class="list_producer">
+					<%= article.producer.nil? ? "Kein Hersteller angegeben" : article.producer.name %>
+			</td>
 
-		<td class="list_actions">
-			<%= link_to 'Show', article %>
-			<%= link_to 'Edit', edit_article_path(article) %>
-			<%= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete %>
-		</td>
-	</tr>
-<% end %>
+			<td class="list_actions">
+				<%= link_to 'Show', article %>
+				<%= link_to 'Edit', edit_article_path(article) %>
+				<%= link_to 'Destroy', article, :confirm => 'Are you sure?', :method => :delete %>
+			</td>
+		</tr>
+	<% end %>
 
-</table>
+	</table>
 </div>
 
 <br />
