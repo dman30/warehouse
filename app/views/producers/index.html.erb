@@ -1,12 +1,22 @@
 <h1>Listing Producers</h1>
 
 <table>
+	<tr>
+		<th>Name</th>
+		<th>Actions</th>
+	</tr>
 
 <% @producers.each do |producer| %>
 	<tr>
-		<td><%= link_to 'Show', producer %></td>
-		<td><%= link_to 'Edit', edit_producer_path(producer) %></td>
-		<td><%= link_to 'Destroy', producer, :confirm => 'Are you sure?', :method => :delete %></td>
+		<td class="list_name">
+				<%= producer.name %>
+		</td>
+
+		<td class="list_actions">
+			<%= link_to 'Show', producer %>
+			<%= link_to 'Edit', edit_producer_path(producer) %>
+			<%= link_to 'Destroy', producer, :confirm => 'Are you sure?', :method => :delete %>
+		</td>
 	</tr>
 <% end %>
 
