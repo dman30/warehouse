@@ -3,25 +3,40 @@ require 'spec_helper'
 describe Employee do
 
 	before :each do
-		@employee = Employee.new(
-			:location => "room",
-			:contact => mock_model("Contact").as_null_object
-		)
-	end
+    Producer.delete_all
+		Distributor.delete_all
+  end
 
-	context "Attributes" do
-  	it "should be valid with all valid attributes" do
-  		@employee.should be_valid
+	context "Validation" do
+		before :each do
+			@employee = FactoryGirl.create(:employee)
 		end
 
 		it "should not be valid without a location" do
 			@employee.location = nil
-			@employee.should_not be_valid
+			@employee.should have(1).error_on(:location)
 		end
+	end
 
-		it "should not be valid without a contact" do
-			@employee.contact = nil
-			@employee.should_not be_valid
-		end
+	context "Response" do
+    let(:employee) { FactoryGirl.create(:employee) }
+      # @employee = FactoryGirl.create(:employee)
+    # end
+
+    it "should respond to note" do
+      employee.should respond_to(:note)
+    end
   end
+
+  context "Association" do
+		it "should have Articles" do
+			created_articles = FactoryGirl.create_list(:article, 3)
+
+			employee = FactoryGirl.create(:employee)
+			employee.articles << created_articles
+			employee.save
+
+			employee.articles.count.should == 3
+		end
+	end
 end
