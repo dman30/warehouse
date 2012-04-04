@@ -1,9 +1,9 @@
 class Contact
   include Mongoid::Document
   
-  has_many :employees
-  has_many :distributors
-  has_many :producers
+  has_one :employee
+  has_one :distributor
+  has_one :producer
 
   field :gender, :type => String
   field :first_name, :type => String
@@ -16,6 +16,11 @@ class Contact
   field :zipcode, :type => String
   field :town, :type => String
  	field :country, :type => String
+
+  field :website, :type => String
+  field :street2, :type => String
+  field :title, :type => String
+  field :note, :type => String
 
  	validates_presence_of :gender, :first_name, :last_name, 
  		:company_name, :phone, :mobile,	:email, :street1,	
