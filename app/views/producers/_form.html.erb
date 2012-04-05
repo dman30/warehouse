@@ -12,8 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :producer %><br />  
+    <%= f.label :name %><br />  
     <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :contact %>
+    <%= f.collection_select :contact, Contact.all, :id, :first_name, :prompt => "Select Contact" %>
   </div>
 
   <div class="actions">
