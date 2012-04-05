@@ -3,22 +3,21 @@
 <table>
 	<tr>
 		<th>Name</th>
-		<th>Actions</th>
 	</tr>
 
-<% @producers.each do |producer| %>
-	<tr>
-		<td class="list_name">
-				<%= producer.name %>
-		</td>
+	<% @producers.each do |producer| %>
+		<tr>
+			<td class="list_name">
+					<%= producer.name %>
+			</td>
 
-		<td class="list_actions">
-			<%= link_to 'Show', producer %>
-			<%= link_to 'Edit', edit_producer_path(producer) %>
-			<%= link_to 'Destroy', producer, :confirm => 'Are you sure?', :method => :delete %>
-		</td>
-	</tr>
-<% end %>
+			<td class="list_actions">
+				<%= link_to 'Show', producer %>
+				<%= link_to 'Edit', edit_producer_path(producer) %>
+				<%= link_to 'Destroy', producer, :confirm => 'Are you sure?', :method => :delete %>
+			</td>
+		</tr>
+	<% end %>			
 
 </table>
 
