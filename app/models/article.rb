@@ -1,22 +1,23 @@
 class Article
   include Mongoid::Document
 
-  belongs_to :producer
-  belongs_to :distributor
-  belongs_to :employee
-
-  field :category, :type => String
-  field :name, :type => String
-  field :barcode, :type => String
-  field :serial_no, :type => String
-  field :purchase_date, :type => String
-  field :installation_date, :type => String
-  field :warranty_expiration, :type => String
-  field :note, :type => String
+  field :category
+  field :name
+  field :barcode
+  field :serial_no
+  field :purchase_date, :type => Date
+  field :warranty_expiration, :type => Date
+  
+  field :installation_date, :type => Date
+  field :note
 
   validates_presence_of :category, 
     :name, :barcode, :serial_no, 
     :purchase_date, :warranty_expiration,
     :producer, :distributor
+
+  referenced_in :producer
+  referenced_in :distributor
+  referenced_in :employee
 
 end

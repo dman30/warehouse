@@ -1,12 +1,12 @@
 class Distributor
   include Mongoid::Document
-  
-  belongs_to :contact
-  has_many :articles
 
-  field :name, :type => String
-  field :note, :type => String
+  field :name
+  field :note
 
   validates_presence_of :name
   validates_uniqueness_of :name
+
+  references_many :articles
+  has_one :contact, as: :contactable, dependent: :delete
 end

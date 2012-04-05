@@ -1,12 +1,11 @@
 class Employee
   include Mongoid::Document
-  
-	belongs_to :contact
-  has_many :articles
 
-  field :location, :type => String
-  field :note, :type => String
+  field :location
+  field :note
 
-  validates_presence_of :location#, :contact
-  
+  validates_presence_of :location
+
+  references_many :articles
+  has_one :contact, as: :contactable, dependent: :delete
 end
