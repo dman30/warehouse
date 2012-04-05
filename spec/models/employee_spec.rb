@@ -29,18 +29,26 @@ describe Employee do
   end
 
   context "Association" do
+  	before :each do
+  		@employee = FactoryGirl.create(:employee)
+  	end
+
 		it "should have Articles" do
-			created_articles = FactoryGirl.create_list(:article, 3)
+			articles = FactoryGirl.create_list(:article, 3)
 
-			employee = FactoryGirl.create(:employee)
-			employee.articles << created_articles
-			employee.save
+			@employee.articles << articles
+			@employee.save
 
-			employee.articles.count.should == 3
+			@employee.articles.count.should == 3
 		end
 
 		it "should have a Contact" do
-			pending
+			contact = FactoryGirl.create(:contact)
+
+			@employee.contact = contact
+			@employee.save
+
+			@employee.contact.should_not be_nil# eq(created_contact)
 		end
 	end
 end

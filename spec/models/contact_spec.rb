@@ -50,25 +50,21 @@ describe Contact do
   end
 
   context "Association" do
-    it "should have a Producer" do
-      contact = FactoryGirl.create(:contact)
-      producer = FactoryGirl.create(:producer)
+    before :each do
+      @contact = FactoryGirl.create(:contact)
+    end
 
-      contact.should respond_to(:producer)
+    it "should have a Producer" do
+      pending
     end
 
     it "should have a Distributor" do
-      # created_distributor = FactoryGirl.create(:distributor)
-
-      # contact = FactoryGirl.create(:contact)
-      # contact.distributor = created_distributor
-      # contact.save
-
-      # contact.distributor.to_a.count.should == 1
+      pending
     end
 
     it "should have an Employee" do
       pending
     end
+
   end
 end

@@ -29,18 +29,26 @@ describe Producer do
   end
 
 	context "Association" do
+		before :each do
+			@producer = FactoryGirl.create(:producer)
+		end
+
 		it "should have Articles" do
-			created_articles = FactoryGirl.create_list(:article, 3)
+			articles = FactoryGirl.create_list(:article, 3)
 
-			producer = FactoryGirl.create(:producer)
-			producer.articles << created_articles
-			producer.save
+			@producer.articles << articles
+			@producer.save
 
-			producer.articles.count.should == 3
+			@producer.articles.count.should == 3
 		end
 
 		it "should have a Contact" do
-			pending
+			contact = FactoryGirl.create(:contact)
+
+			@producer.contact = contact
+			@producer.save
+
+			@producer.contact.should_not be_nil# eq(created_contact)
 		end
 	end
 end

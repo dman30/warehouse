@@ -28,18 +28,26 @@ describe Distributor do
   end
 
   context "Association" do
+  	before :each do
+  		@distributor = FactoryGirl.create(:distributor)
+  	end
+
 		it "should have Articles" do
-			created_articles = FactoryGirl.create_list(:article, 3)
+			articles = FactoryGirl.create_list(:article, 3)
+			
+			@distributor.articles << articles
+			@distributor.save
 
-			distributor = FactoryGirl.create(:producer)
-			distributor.articles << created_articles
-			distributor.save
-
-			distributor.articles.count.should == 3
+			@distributor.articles.count.should == 3
 		end
 
 		it "should have a Contact" do
-			pending
+			contact = FactoryGirl.create(:contact)
+
+			@distributor.contact = contact
+			@distributor.save
+
+			@distributor.contact.should_not be_nil
 		end
 	end
 
