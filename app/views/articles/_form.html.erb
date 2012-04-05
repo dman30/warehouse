@@ -17,9 +17,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :producer %><br />  
-    <%= f.select :producer_id, Producer.all.collect {|x| [x.name, x.id]}, {} %>
-    <!-- collection_select(:company, :country_id, Country.all, :id, :name, :prompt => 'Please select country') -->
+    <% if Producer.all.count == 0 %>
+      <%= f.label :producer_id %><br />
+      <%= link_to 'New Producer', new_producer_path %>
+    <% else %>
+      <%= f.label :producer_id %><br />
+      <%= f.collection_select :producer_id, Producer.all, :id, :name, :prompt => "Select Producer" %>
+    <% end %>
   </div>
 
   <div class="field">
@@ -28,8 +32,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :distributor %><br />
-    <%= f.select :distributor, Distributor.all.collect {|x| [x.name, x.id]}, {} %>
+    <%= f.label :distributor_id %><br />
+    <%= f.collection_select :distributor_id, Distributor.all, :id, :name, :prompt => "Select Distributor" %>
   </div>
 
   <div class="field">
@@ -44,12 +48,17 @@
 
   <div class="field">
     <%= f.label :purchase_date %><br />
-    <%= f.text_field :purchase_date %>
+    <%= f.date_select :purchase_date %>
   </div>
 
   <div class="field">
     <%= f.label :warranty_expiration %><br />
-    <%= f.text_field :warranty_expiration %>
+    <%= f.date_select :warranty_expiration %>
+  </div>
+
+  <div class="field">
+    <%= f.label :installation_date %><br />
+    <%= f.date_select :installation_date %>
   </div>
 
   <div class="field">
