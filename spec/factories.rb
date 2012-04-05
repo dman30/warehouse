@@ -14,6 +14,7 @@ FactoryGirl.define do
 
   factory :producer do |f|
   	f.sequence(:name) { |n| "producer#{n}" }
+    
   end
 
   factory :distributor do |f|
