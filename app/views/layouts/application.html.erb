@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Warehouse</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<head>
+	  <title>Warehouse</title>
+	  <%= stylesheet_link_tag    "application", :media => "all" %>
+	  <%= javascript_include_tag "application" %>
+	  <%= csrf_meta_tags %>
+	</head>
+	<body>
 
-<h3>Turbo-Navigation:</h3>
-<ul>
-	<li><%= link_to 'Articles', articles_path %></li>
-	<li><%= link_to 'Producers', producers_path %></li>
-	<li><%= link_to 'Distributors', distributors_path %></li>
-	<li><%= link_to 'Employees', employees_path %></li>
-	<li><%= link_to 'Contacts', contacts_path %></li>
-</ul>
+	<h3>Turbo-Navigation:</h3>
+	<ul>
+		<li><%= link_to 'Articles', articles_path %></li>
+		<li><%= link_to 'Producers', producers_path %></li>
+		<li><%= link_to 'Distributors', distributors_path %></li>
+		<li><%= link_to 'Employees', employees_path %></li>
+		<li><%= link_to 'Contacts', contacts_path %></li>
+		<li><%= link_to 'Users', users_path %></li>
+	</ul>
 
-<%= yield %>
+	<%= yield %>
 
-</body>
+	</body>
 </html>
