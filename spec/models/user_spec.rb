@@ -3,32 +3,37 @@ require 'spec_helper'
 describe User do
   
   before :each do
-    @user = User.new(
-      :email => "user@mail.com",
-      :password => "secret", 
-      :contact => mock_model("Contact").as_null_object
-    )
+    User.delete_all
   end
 
-  context "Attributes" do
-
-    it "should be valid with all valid attributes" do
-      @user.should be_valid
-    end
-    
-    it "should not be valid without an email" do
-      @user.email = nil
-      @user.should_not be_valid
+  context "Validation" do
+    before :each do
+      @user = FactoryGirl.create(:user)
     end
 
-    it "should not be valid without a password" do
-      @user.password = nil
-      @user.should_not be_valid
+    [ :email,
+      :password
+    ].each do |attribute|
+
+      it "should not be valid without a #{attribute}" do
+        @user.send("#{attribute}=", nil)
+        @user.should have(1).error_on(attribute)
+      end
+    end
+  end
+
+  context "Association" do
+    before :each do
+      @user = FactoryGirl.create(:user)
     end
 
-    it "should not be valid without a contact" do
-      @user.contact = nil
-      @user.should_not be_valid
+    it "should have a Contact" do
+      contact = FactoryGirl.create(:contact)
+
+      @user.contact = contact
+      @user.save
+
+      @user.contact.should_not be_nil
     end
   end
 end
