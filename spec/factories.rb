@@ -41,9 +41,8 @@ FactoryGirl.define do
 
   # http://railscasts.com/episodes/158-factories-not-fixtures?autoplay=true
   factory :user do |f|
-    f.sequence(:username) { |n| "user#{n}" }
+    f.sequence(:email) { |n| "user#{n}@mail.com" }
     f.password "secret"
     f.password_confirmation { |u| u.password }
-    f.sequence(:email) { |n| "user#{n}@mail.com" }
   end
 end
