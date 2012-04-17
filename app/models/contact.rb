@@ -1,8 +1,6 @@
 class Contact
   include Mongoid::Document
   
-  belongs_to :contactable, polymorphic: true
-
   field :gender
   field :first_name
   field :last_name
@@ -20,7 +18,9 @@ class Contact
   field :title
   field :note
 
- 	validates_presence_of :gender, :first_name, :last_name, 
- 		:company_name, :phone, :mobile,	:email, :street1,	
- 		:zipcode, :town, :country
+ 	# validates_presence_of :gender, :first_name, :last_name, 
+ 	# 	:company_name, :phone, :mobile,	:email, :street1,	
+ 	# 	:zipcode, :town, :country
+
+  belongs_to :contactable, polymorphic: true
 end
