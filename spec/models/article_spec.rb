@@ -14,14 +14,14 @@ describe Article do
       @article = FactoryGirl.create(:article)
     end
 
-    [ :category, 
+    [ :producer,
+      :distributor,
+      :category, 
       :name, 
       :barcode, 
       :serial_no, 
       :purchase_date, 
-      :warranty_expiration,
-      :producer,
-      :distributor
+      :warranty_expiration
     ].each do |attribute|
 
       it "should not be valid without a #{attribute}" do
@@ -36,12 +36,12 @@ describe Article do
       @article = FactoryGirl.create(:article)
     end
 
-    it "should respond to note" do
-      @article.should respond_to(:note)
-    end
-
     it "should respond to installation_date" do
       @article.should respond_to(:installation_date)
+    end
+    
+    it "should respond to note" do
+      @article.should respond_to(:note)
     end
   end
 

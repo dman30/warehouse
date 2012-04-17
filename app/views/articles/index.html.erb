@@ -3,10 +3,10 @@
 
 	<table>
 		<tr>
-			<th>Category</th>
 			<th>Producer</th>
-			<th>Name</th>
 			<th>Distributor</th>
+			<th>Category</th>
+			<th>Name</th>
 			<th>Barcode</th>
 			<th>Serial No.</th>
 			<th>Purchase Date</th>
@@ -17,20 +17,20 @@
 
 		<% @articles.each do |article| %>
 		<tr>
-			<td class="list_category">
-				<%= article.category %>
-			</td>
-
 			<td class="list_producer">
 				<%= article.producer.nil? ? "Kein Hersteller angegeben" : article.producer.name %>
 			</td>
 
-			<td class="list_name">
-					<%= article.name %>
-			</td>
-
 			<td class="list_distributor">
 				<%= article.producer.nil? ? "Kein Händler angegeben" : article.distributor.name %>
+			</td>
+
+			<td class="list_category">
+				<%= article.category %>
+			</td>
+
+			<td class="list_name">
+					<%= article.name %>
 			</td>
 
 			<td class="list_barcode">
