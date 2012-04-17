@@ -32,8 +32,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :distributor_id %><br />
-    <%= f.collection_select :distributor_id, Distributor.all, :id, :name, :prompt => "Select Distributor" %>
+    <% if Distributor.all.count == 0 %>
+      <%= f.label :distributor_id %><br />
+      <%= link_to 'New Distributor', new_distributor_path %>
+    <% else %>
+      <%= f.label :distributor_id %><br />
+      <%= f.collection_select :distributor_id, Distributor.all, :id, :name, :prompt => "Select Distributor" %>
+    <% end %>
   </div>
 
   <div class="field">
