@@ -3,12 +3,17 @@
 <table>
 	<tr>
 		<th>Name</th>
+		<th>Note</th>
 	</tr>
 
 	<% @producers.each do |producer| %>
 		<tr>
 			<td class="list_name">
 					<%= producer.name %>
+			</td>
+
+			<td class="list_note">
+					<%= producer.note %>
 			</td>
 
 			<td class="list_actions">
