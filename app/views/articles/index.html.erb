@@ -4,8 +4,15 @@
 	<table>
 		<tr>
 			<th>Category</th>
-			<th>Name</th>
 			<th>Producer</th>
+			<th>Name</th>
+			<th>Distributor</th>
+			<th>Barcode</th>
+			<th>Serial No.</th>
+			<th>Purchase Date</th>
+			<th>Warranty Expiration</th>
+			<th>Installation Date</th>
+			<th>Notes</th>
 			<th>Actions</th>
 		</tr>
 
@@ -16,12 +23,40 @@
 				<%= article.category %>
 			</td>
 
+			<td class="list_producer">
+				<%= article.producer.nil? ? "Kein Hersteller angegeben" : article.producer.name %>
+			</td>
+
 			<td class="list_name">
 					<%= article.name %>
 			</td>
 
-			<td class="list_producer">
-					<%= article.producer.nil? ? "Kein Hersteller angegeben" : article.producer.name %>
+			<td class="list_distributor">
+				<%= article.producer.nil? ? "Kein Händler angegeben" : article.distributor.name %>
+			</td>
+
+			<td class="list_barcode">
+				<%= article.barcode %>
+			</td>
+
+			<td class="list_serial_no">
+				<%= article.serial_no %>
+			</td>
+
+			<td class="list_purchase_date">
+				<%= article.purchase_date %>
+			</td>
+
+			<td class="list_warranty_expiration">
+				<%= article.warranry_expiration %>
+			</td>
+
+			<td class="list_installation_date">
+				<%= article.installatin_date %>
+			</td>
+
+			<td class="list_note">
+				<%= article.note %>
 			</td>
 
 			<td class="list_actions">
