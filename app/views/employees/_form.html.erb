@@ -17,6 +17,16 @@
   </div>
 
   <div class="field">
+    <% if Contact.all.count == 0 %>
+      <%= f.label :contact %><br />
+      <%= link_to 'New Contact', new_contact_path %>
+    <% else %>
+      <%= f.label :contact %><br />
+      <%= f.collection_select :contact, Contact.all, :id, :last_name, :prompt => true %>
+    <% end %>
+  </div>
+
+  <div class="field">
     <%= f.label :note %><br />
     <%= f.text_area :note, :rows => 3 %>
   </div>
