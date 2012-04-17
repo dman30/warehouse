@@ -5,6 +5,7 @@ class User
 
   field :email
   field :password
+  field :note
 
 	# http://railscasts.com/episodes/158-factories-not-fixtures?autoplay=true
 

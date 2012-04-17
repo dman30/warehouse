@@ -5,7 +5,7 @@
     <tr>
       <th>Email</th>
       <th>Password</th>
-      <th>Actions</th>
+      <th>Note</th>
     </tr>
 
   <% @users.each do |user| %>
@@ -17,6 +17,10 @@
 
       <td class="list_password">
         <%= user.password %>
+      </td>
+
+      <td class="list_note">
+        <%= user.note %>
       </td>
 
       <td class="list_actions">

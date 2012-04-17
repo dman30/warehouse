@@ -22,6 +22,16 @@ describe User do
     end
   end
 
+  context "Response" do
+    before :each do
+      @user = FactoryGirl.create(:user)
+    end
+
+    it "should respond to note" do
+      @user.should respond_to(:note)
+    end
+  end
+
   context "Association" do
     before :each do
       @user = FactoryGirl.create(:user)
