@@ -37,9 +37,9 @@ describe Contact do
       @contact = FactoryGirl.create(:contact)
     end
 
-    [ :website,
+    [ :title,
+      :website,
       :street2,
-      :title,
       :note
     ].each do |attribute|
 
