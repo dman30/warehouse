@@ -12,23 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :category %><br />
-    <%= f.text_field :category %>
-  </div>
-
-  <div class="field">
     <% if Producer.all.count == 0 %>
       <%= f.label :producer_id %><br />
       <%= link_to 'New Producer', new_producer_path %>
     <% else %>
       <%= f.label :producer_id %><br />
-      <%= f.collection_select :producer_id, Producer.all, :id, :name, :prompt => "Select Producer" %>
+      <%= f.collection_select :producer_id, Producer.all, :id, :name, :prompt => true %>
     <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
   </div>
 
   <div class="field">
@@ -37,8 +27,18 @@
       <%= link_to 'New Distributor', new_distributor_path %>
     <% else %>
       <%= f.label :distributor_id %><br />
-      <%= f.collection_select :distributor_id, Distributor.all, :id, :name, :prompt => "Select Distributor" %>
+      <%= f.collection_select :distributor_id, Distributor.all, :id, :name, :prompt => true %>
     <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category %><br />
+    <%= f.text_field :category %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
   </div>
 
   <div class="field">
