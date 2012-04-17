@@ -1,10 +1,10 @@
 class Contact
   include Mongoid::Document
   
+  field :company_name
   field :gender
   field :first_name
   field :last_name
-  field :company_name
   field :phone
   field :mobile
   field :email

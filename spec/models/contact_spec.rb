@@ -12,10 +12,10 @@ describe Contact do
       @contact = FactoryGirl.create(:contact)
     end
 
-    [ :gender,
+    [ :company_name,
+      :gender,
       :first_name, 
       :last_name, 
-      :company_name,
       :phone, 
       :mobile, 
       :email,

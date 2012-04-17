@@ -1,5 +1,69 @@
+<h1>Showing Contact</h1>
+
 <p id="notice"><%= notice %></p>
 
+<table>
+	<tr>
+		<th>Company Name:</th>
+		<td><%= @contact.company_name %></td>
+	</tr>
+	<tr>
+		<th>Gender:</th>
+		<td><%= @contact.gender %></td>
+	</tr>
+	<tr>
+		<th>Title:</th>
+		<td><%= @contact.title %></td>
+	</tr>
+	<tr>
+		<th>First Name:</th>
+		<td><%= @contact.first_name %></td>
+	</tr>
+	<tr>
+		<th>Last Name:</th>
+		<td><%= @contact.last_name %></td>
+	</tr>
+	<tr>
+		<th>Phone:</th>
+		<td><%= @contact.phone %></td>
+	</tr>
+	<tr>
+		<th>Mobile:</th>
+		<td><%= @contact.mobile %></td>
+	</tr>
+	<tr>
+		<th>Email:</th>
+		<td><%= @contact.email %></td>
+	</tr>
+	<tr>
+		<th>Website:</th>
+		<td><%= @contact.website %></td>
+	</tr>
+	<tr>
+		<th>Street 1:</th>
+		<td><%= @contact.street1 %></td>
+	</tr>
+	<tr>
+		<th>Street 2:</th>
+		<td><%= @contact.street2 %></td>
+	</tr>
+	<tr>
+		<th>Zipcode:</th>
+		<td><%= @contact.zipcode %></td>
+	</tr>
+	<tr>
+		<th>Town:</th>
+		<td><%= @contact.town %></td>
+	</tr>
+	<tr>
+		<th>Country:</th>
+		<td><%= @contact.country %></td>
+	</tr>
+	<tr>
+		<th>Note:</th>
+		<td><%= @contact.note %></td>
+	</tr>
+</table>
 
 <%= link_to 'Edit', edit_contact_path(@article) %> |
 <%= link_to 'Back', contacts_path %>

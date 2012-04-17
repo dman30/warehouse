@@ -2,11 +2,11 @@
 
 <table>
 	<tr>
+		<th>Company Name</th>
 		<th>Gender</th>
 		<th>Title</th>
 		<th>First Name</th>
 		<th>Last Name</th>
-		<th>Company Name</th>
 		<th>Phone</th>
 		<th>Mobile</th>
 		<th>E-Mail</th>
@@ -18,8 +18,14 @@
 		<th>Country</th>
 		<th>Note</th>
 	</tr>
+
 <% @contacts.each do |contact| %>
+
 	<tr>
+		<td class="list">
+			<%= contact.company_name %>
+		</td>
+
 		<td class="list">
 			<%= contact.gender %>
 		</td>
@@ -34,10 +40,6 @@
 
 		<td class="list">
 			<%= contact.last_name %>
-		</td>
-
-		<td class="list">
-			<%= contact.company_name %>
 		</td>
 
 		<td class="list">
