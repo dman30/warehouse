@@ -1,5 +1,53 @@
+<h1>Showing Article</h1>
+
 <p id="notice"><%= notice %></p>
 
+<table>
+	<tr>
+		<th>Producer:</th>
+		<td><%= @article.producer %></td>
+	</tr>
+	<tr>
+		<th>Distributor:</th>
+		<td><%= @article.distributor %></td>
+	</tr>
+	<tr>
+		<th>Category:</th>
+		<td><%= @article.category %></td>
+	</tr>
+	<tr>
+		<th>Name:</th>
+		<td><%= @article.name %></td>
+	</tr>
+	<tr>
+		<th>Name:</th>
+		<td><%= @article.name %></td>
+	</tr>
+	<tr>
+		<th>Barcode:</th>
+		<td><%= @article.barcode %></td>
+	</tr>
+	<tr>
+		<th>Serial No.:</th>
+		<td><%= @article.serial_no %></td>
+	</tr>
+	<tr>
+		<th>Purchase Date:</th>
+		<td><%= @article.purchase_date %></td>
+	</tr>
+	<tr>
+		<th>Warranty Expiration:</th>
+		<td><%= @article.warranty_expiration %></td>
+	</tr>
+	<tr>
+		<th>Installation Date:</th>
+		<td><%= @article.installation_date %></td>
+	</tr>
+	<tr>
+		<th>Note:</th>
+		<td><%= @article.note %></td>
+	</tr>
+</table>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>

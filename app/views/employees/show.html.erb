@@ -1,5 +1,17 @@
+<h1>Showing Employee</h1>
+
 <p id="notice"><%= notice %></p>
 
+<table>
+	<tr>
+		<th>Location:</th>
+		<td><%= @employee.location %></td>
+	</tr>
+	<tr>
+		<th>Note:</th>
+		<td><%= @employee.note %></td>
+	</tr>
+</table>
 
 <%= link_to 'Edit', edit_employee_path(@employee) %> |
 <%= link_to 'Back', employees_path %>

@@ -1,5 +1,17 @@
+<h1>Showing User</h1>
+
 <p id="notice"><%= notice %></p>
 
+<table>
+	<tr>
+		<th>Email:</th>
+		<td><%= @user.email %></td>
+	</tr>
+	<tr>
+		<th>Password:</th>
+		<td><%= @user.password %></td>
+	</tr>
+</table>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

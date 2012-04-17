@@ -1,5 +1,17 @@
+<h1>Showing Distributor</h1>
+
 <p id="notice"><%= notice %></p>
 
+<table>
+	<tr>
+		<th>Name:</th>
+		<td><%= @distributor.name %></td>
+	</tr>
+	<tr>
+		<th>Note:</th>
+		<td><%= @distributor.note %></td>
+	</tr>
+</table>
 
 <%= link_to 'Edit', edit_distributor_path(@distributor) %> |
 <%= link_to 'Back', distributors_path %>
