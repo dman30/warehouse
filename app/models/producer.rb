@@ -2,7 +2,7 @@ class Producer
   include Mongoid::Document
 
   references_many :articles
-  has_one :contact, as: :contactable, dependent: :destroy
+  has_one :contact, as: :contactable, dependent: :destroy, :autosave => true
   # accepts_nested_attributes_for :contact
 
   field :company_name
@@ -10,4 +10,5 @@ class Producer
 
   validates_presence_of :company_name
   validates_uniqueness_of :company_name
+
 end

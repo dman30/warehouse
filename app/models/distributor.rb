@@ -2,7 +2,7 @@ class Distributor
   include Mongoid::Document
 
   references_many :articles
-  has_one :contact, as: :contactable, dependent: :delete
+  has_one :contact, as: :contactable, dependent: :destroy
 
   field :company_name
   field :note

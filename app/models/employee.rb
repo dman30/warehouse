@@ -1,5 +1,8 @@
 class Employee
   include Mongoid::Document
+  
+  references_many :articles
+  has_one :contact, as: :contactable, dependent: :destroy
 
   field :gender
   field :first_name
@@ -9,6 +12,4 @@ class Employee
 
   validates_presence_of :gender, :first_name, :last_name, :location
 
-  references_many :articles
-  has_one :contact, as: :contactable, dependent: :delete
 end

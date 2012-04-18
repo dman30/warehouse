@@ -1,5 +1,7 @@
 class Contact
   include Mongoid::Document
+
+  belongs_to :contactable, polymorphic: true
   
   field :company_name
   field :gender
@@ -17,6 +19,4 @@ class Contact
  	field :country
   field :note
 
-  #belongs_to :contactable, polymorphic: true
-  belongs_to :producer
 end
