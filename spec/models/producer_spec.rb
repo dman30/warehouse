@@ -48,7 +48,7 @@ describe Producer do
 			@producer.contact = contact
 			@producer.save
 
-			@producer.contact.should_not be_nil# eq(created_contact)
+			@producer.contact.should_not be_nil
 		end
 	end
 end
