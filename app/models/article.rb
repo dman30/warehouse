@@ -1,5 +1,7 @@
 class Article
   include Mongoid::Document
+  # for handling form helper date_select
+  include Mongoid::MultiParameterAttributes
 
   field :category
   field :name
