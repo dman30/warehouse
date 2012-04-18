@@ -18,11 +18,11 @@
 		<% @articles.each do |article| %>
 		<tr>
 			<td class="list_attributes">
-				<%= article.producer.nil? ? "Kein Hersteller angegeben" : article.producer.name %>
+				<%= article.producer.nil? ? "Kein Hersteller angegeben" : article.producer.company_name %>
 			</td>
 
 			<td class="list_attributes">
-				<%= article.producer.nil? ? "Kein Händler angegeben" : article.distributor.name %>
+				<%= article.producer.nil? ? "Kein Händler angegeben" : article.distributor.company_name %>
 			</td>
 
 			<td class="list_attributes">

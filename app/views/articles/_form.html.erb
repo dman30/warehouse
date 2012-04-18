@@ -17,7 +17,7 @@
       <%= link_to 'New Producer', new_producer_path %>
     <% else %>
       <%= f.label :producer_id %><br />
-      <%= f.collection_select :producer_id, Producer.all, :id, :name, :prompt => true %>
+      <%= f.collection_select :producer_id, Producer.all, :id, :company_name, :prompt => true %>
     <% end %>
   </div>
 
@@ -27,7 +27,7 @@
       <%= link_to 'New Distributor', new_distributor_path %>
     <% else %>
       <%= f.label :distributor_id %><br />
-      <%= f.collection_select :distributor_id, Distributor.all, :id, :name, :prompt => true %>
+      <%= f.collection_select :distributor_id, Distributor.all, :id, :company_name, :prompt => true %>
     <% end %>
   </div>
 
