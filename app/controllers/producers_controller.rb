@@ -33,10 +33,11 @@ class ProducersController < ApplicationController
 	
 	def create
     @producer = Producer.new(params[:producer])
+    
+    @producer.contact = Contact.new()
 
     respond_to do |format|
       if @producer.save
-        # @producer.contact.save
         format.html { redirect_to @producer, :notice => 'producer was successfully created.' }
         format.json { render :json => @producer, :status => :created, :location => @producer }
       else
