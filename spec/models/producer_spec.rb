@@ -12,9 +12,9 @@ describe Producer do
 			@producer = FactoryGirl.create(:producer)
 		end
 
-		it "should not be valid without a name" do
-			@producer.name = nil
-			@producer.should have(1).error_on(:name)
+		it "should not be valid without a company_name" do
+			@producer.company_name = nil
+			@producer.should have(1).error_on(:company_name)
 		end
 	end
 

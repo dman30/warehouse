@@ -11,9 +11,9 @@ describe Distributor do
 			@distributor = FactoryGirl.create(:distributor)
 		end
 
-		it "should not be valid without a name" do
-			@distributor.name = nil
-			@distributor.should have(1).error_on(:name)
+		it "should not be valid without a company_name" do
+			@distributor.company_name = nil
+			@distributor.should have(1).error_on(:company_name)
 		end
 	end
 

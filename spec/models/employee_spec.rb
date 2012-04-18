@@ -12,6 +12,21 @@ describe Employee do
 			@employee = FactoryGirl.create(:employee)
 		end
 
+		it "should not be valid without a gender" do
+			@employee.gender = nil
+			@employee.should have(1).error_on(:gender)
+		end
+
+		it "should not be valid without a first name" do
+			@employee.first_name = nil
+			@employee.should have(1).error_on(:first_name)
+		end
+
+		it "should not be valid without a last name" do
+			@employee.last_name = nil
+			@employee.should have(1).error_on(:last_name)
+		end
+
 		it "should not be valid without a location" do
 			@employee.location = nil
 			@employee.should have(1).error_on(:location)

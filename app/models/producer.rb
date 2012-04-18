@@ -1,12 +1,13 @@
 class Producer
   include Mongoid::Document
 
-  field :name
+  references_many :articles
+  has_one :contact, as: :contactable, dependent: :destroy
+  # accepts_nested_attributes_for :contact
+
+  field :company_name
   field :note
 
-  validates_presence_of :name
-  validates_uniqueness_of :name
-
-  references_many :articles
-  has_one :contact, as: :contactable, dependent: :delete
+  validates_presence_of :company_name
+  validates_uniqueness_of :company_name
 end

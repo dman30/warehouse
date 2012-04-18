@@ -13,15 +13,17 @@ FactoryGirl.define do
   end
 
   factory :producer do |f|
-  	f.sequence(:name) { |n| "producer#{n}" }
-    
+  	f.sequence(:company_name) { |n| "producer#{n}" }    
   end
 
   factory :distributor do |f|
-  	f.sequence(:name) { |n| "distributor#{n}" }
+  	f.sequence(:company_name) { |n| "distributor#{n}" }
   end
 
   factory :employee do |f| 
+    f.gender 'male'
+    f.sequence(:first_name) { |n| "Firstname#{n}" }
+    f.sequence(:last_name) { |n| "Lastname#{n}" }
     f.location "office_no"
   end
 
