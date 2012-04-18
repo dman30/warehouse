@@ -7,39 +7,25 @@ describe Contact do
     Distributor.delete_all
   end
 
-  context "Validation" do
+  context "Response" do
     before :each do
       @contact = FactoryGirl.create(:contact)
     end
 
     [ :company_name,
       :gender,
+      :title,
       :first_name, 
       :last_name, 
       :phone, 
       :mobile, 
       :email,
+      :website,
       :street1,
+      :street2,
       :zipcode,
       :town,
-      :country
-    ].each do |attribute|
-
-      it "should not be valid without a #{attribute}" do
-        @contact.send("#{attribute}=", nil)
-        @contact.should have(1).error_on(attribute)
-      end
-    end
-  end
-
-  context "Response" do
-    before :each do
-      @contact = FactoryGirl.create(:contact)
-    end
-
-    [ :title,
-      :website,
-      :street2,
+      :country,
       :note
     ].each do |attribute|
 

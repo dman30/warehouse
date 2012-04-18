@@ -3,24 +3,20 @@ class Contact
   
   field :company_name
   field :gender
+  field :title
   field :first_name
   field :last_name
   field :phone
   field :mobile
   field :email
+  field :website
   field :street1
+  field :street2
   field :zipcode
   field :town
  	field :country
-
-  field :website
-  field :street2
-  field :title
   field :note
 
- 	# validates_presence_of :gender, :first_name, :last_name, 
- 	# 	:company_name, :phone, :mobile,	:email, :street1,	
- 	# 	:zipcode, :town, :country
-
-  belongs_to :contactable, polymorphic: true
+  #belongs_to :contactable, polymorphic: true
+  belongs_to :producer
 end
