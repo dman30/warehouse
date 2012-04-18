@@ -4,6 +4,7 @@
 	<tr>
 		<th>Company Name</th>
 		<th>Note</th>
+		<th>Contact</th>
 	</tr>
 
 	<% @producers.each do |producer| %>
@@ -15,6 +16,10 @@
 
 			<td class="list_attributes">
 					<%= producer.note %>
+			</td>
+
+			<td class="list_attributes">
+					<%= producer.contact %>
 			</td>
 
 			<td class="list_actions">
