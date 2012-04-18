@@ -2,17 +2,18 @@
 
 <table>
 	<tr>
-		<th>Name</th>
+		<th>Company Name</th>
 		<th>Note</th>
 	</tr>
 
 	<% @producers.each do |producer| %>
 		<tr>
-			<td class="list_name">
-					<%= producer.name %>
-			</td>
 
-			<td class="list_note">
+			<td class="list_attributes">
+					<%= producer.company_name %>
+			</td>			
+
+			<td class="list_attributes">
 					<%= producer.note %>
 			</td>
 

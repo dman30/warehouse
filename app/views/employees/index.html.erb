@@ -2,17 +2,32 @@
 
 <table>
   <tr>
+    <th>Gender</th>
+    <th>First Name</th>
+    <th>Last Name</th>
     <th>Location</th>
     <th>Note</th>
   </tr>
 
 <% @employees.each do |employee| %>
   <tr>
-    <td class="list_name">
+    <td class="list_attributes">
+        <%= employee.gender %>
+    </td>
+
+    <td class="list_attributes">
+        <%= employee.first_name %>
+    </td>
+
+    <td class="list_attributes">
+        <%= employee.last_name %>
+    </td>
+
+    <td class="list_attributes">
         <%= employee.location %>
     </td>
 
-    <td class="list_note">
+    <td class="list_attributes">
         <%= employee.note %>
     </td>
 

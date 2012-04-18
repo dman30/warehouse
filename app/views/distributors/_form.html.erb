@@ -12,19 +12,9 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />  
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <% if Contact.all.count == 0 %>
-      <%= f.label :contact %><br />
-      <%= link_to 'New Contact', new_contact_path %>
-    <% else %>
-      <%= f.label :contact %><br />
-      <%= f.collection_select :contact, Contact.all, :id, :company_name, :prompt => true %>
-    <% end %>
-  </div>
+    <%= f.label :company_name %><br />
+    <%= f.text_field :company_name %>
+  </div>  
 
   <div class="field">
     <%= f.label :note %><br />

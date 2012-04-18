@@ -11,15 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />  
-    <%= f.text_field :name %>
-  </div>
+<!--   <div class="field">
+    <%= f.fields_for :contact do |builder| %> 
+      <%= builder.label :company_name %><br />  
+      <%= builder.text_field :company_name %>
+    <% end %>
+  </div> -->
 
   <div class="field">
-    <%= f.label :contact %><br />
-    <%= link_to 'New Contact', new_contact_path %>
-  </div>
+    <%= f.label :company_name %><br />
+    <%= f.text_field :company_name %>
+  </div>  
 
   <div class="field">
     <%= f.label :note %><br />

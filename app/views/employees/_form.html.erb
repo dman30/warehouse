@@ -12,18 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :location %><br />  
-    <%= f.text_field :location %>
+    <%= f.label :gender %><br />
+    <%= f.select :gender, ['Herr', 'Frau'], :prompt => true %>
   </div>
 
   <div class="field">
-    <% if Contact.all.count == 0 %>
-      <%= f.label :contact %><br />
-      <%= link_to 'New Contact', new_contact_path %>
-    <% else %>
-      <%= f.label :contact %><br />
-      <%= f.collection_select :contact, Contact.all, :id, :last_name, :prompt => true %>
-    <% end %>
+    <%= f.label :first_name %><br />  
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />  
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :location %><br />  
+    <%= f.text_field :location %>
   </div>
 
   <div class="field">
