@@ -19,7 +19,7 @@ class ProducersController < ApplicationController
 	end
 	
 	def new
-		@producer = Producer.new
+		@producer = Producer.new#(:contact => Contact.new)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,6 +36,7 @@ class ProducersController < ApplicationController
 
     respond_to do |format|
       if @producer.save
+        # @producer.contact.save
         format.html { redirect_to @producer, :notice => 'producer was successfully created.' }
         format.json { render :json => @producer, :status => :created, :location => @producer }
       else
