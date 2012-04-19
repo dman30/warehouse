@@ -5,6 +5,7 @@
 	<tr>
 		<th>Company Name</th>
 		<th>Note</th>
+		<th>Contact</th>
 	</tr>
 
 <% @distributors.each do |distributor| %>
@@ -15,6 +16,10 @@
 
 		<td class="list_attributes">
 				<%= distributor.note %>
+		</td>
+
+		<td class="list_attributes">
+			<%= link_to 'Show Contact', distributor.contact %>
 		</td>
 
 		<td class="list_actions">

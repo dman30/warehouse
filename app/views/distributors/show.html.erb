@@ -11,6 +11,10 @@
 		<th>Note:</th>
 		<td><%= @distributor.note %></td>
 	</tr>
+	<tr>
+		<th>Contact:</th>
+		<td><%= link_to 'Show Contact', @distributor.contact %></td>
+	</tr>
 </table>
 
 <%= link_to 'Edit', edit_distributor_path(@distributor) %> |

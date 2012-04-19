@@ -3,6 +3,7 @@ class Employee
   
   references_many :articles
   has_one :contact, as: :contactable, dependent: :destroy
+  accepts_nested_attributes_for :contact, :autosave => true
 
   field :gender
   field :first_name

@@ -11,21 +11,92 @@
     </div>
   <% end %>
 
-<!--   <div class="field">
-    <%= f.fields_for :contact do |builder| %> 
-      <%= builder.label :company_name %><br />  
-      <%= builder.text_field :company_name %>
+  <div id="producer_input">
+    <div class="field">
+      <%= f.label :company_name %><br />
+      <%= f.text_field :company_name %>
+    </div>  
+
+    <div class="field">
+      <%= f.label :note %><br />
+      <%= f.text_area :note, :rows => 3 %>
+    </div>
+  </div>
+
+  <div id="contact_input">
+    <h3>Kontaktdaten:</h3>
+    <%= f.fields_for :contact do |c| %> 
+      <div class="field">
+        <%= c.label :gender %><br />
+        <%= c.select :gender, ['Herr', 'Frau'], :prompt => true %>
+      </div>
+
+      <div class="field">
+        <%= c.label :title %><br />
+        <%= c.select :title, ['Dr.', 'Prof.'], :prompt => true %>
+      </div>
+
+      <div class="field">
+        <%= c.label :first_name %><br />
+        <%= c.text_field :first_name %>
+      </div>
+
+      <div class="field">
+        <%= c.label :last_name %><br />
+        <%= c.text_field :last_name %>
+      </div>
+
+      <div class="field">
+        <%= c.label :phone %><br />
+        <%= c.telephone_field :phone %>
+      </div>
+
+      <div class="field">
+        <%= c.label :mobile %><br />
+        <%= c.telephone_field :mobile %>
+      </div>
+
+      <div class="field">
+        <%= c.label :email %><br />
+        <%= c.email_field :email %>
+      </div>
+
+      <div class="field">
+        <%= c.label :website %><br />
+        <%= c.url_field :website %>
+      </div>
+
+      <div class="field">
+        <%= c.label :street1 %><br />
+        <%= c.text_field :street1 %>
+      </div>
+
+      <div class="field">
+        <%= c.label :street2 %><br />
+        <%= c.text_field :street2 %>
+      </div>
+
+      <div class="field">
+        <%= c.label :zipcode %><br />
+        <%= c.text_field :zipcode %>
+      </div>
+
+      <div class="field">
+        <%= c.label :town %><br />
+        <%= c.text_field :town %>
+      </div>
+
+      <div class="field">
+        <%= c.label :country %><br />
+        <%= c.text_field :country %>
+      </div>
+
+      <div class="field">
+        <%= c.label :note %><br />
+        <%= c.text_area :note, :rows => 3 %>
+      </div>
     <% end %>
-  </div> -->
-
-  <div class="field">
-    <%= f.label :company_name %><br />
-    <%= f.text_field :company_name %>
-  </div>  
-
-  <div class="field">
-    <%= f.label :note %><br />
-    <%= f.text_area :note, :rows => 3 %>
+    </div>
   </div>
 
   <div class="actions">

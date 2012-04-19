@@ -3,7 +3,7 @@ class Producer
 
   references_many :articles
   has_one :contact, as: :contactable, dependent: :destroy, :autosave => true
-  # accepts_nested_attributes_for :contact
+  accepts_nested_attributes_for :contact, :autosave => true
 
   field :company_name
   field :note

@@ -19,7 +19,7 @@
 			</td>
 
 			<td class="list_attributes">
-					<%= producer.contact %>
+				<%= link_to 'Show Contact', producer.contact %>
 			</td>
 
 			<td class="list_actions">
@@ -27,6 +27,7 @@
 				<%= link_to 'Edit', edit_producer_path(producer) %>
 				<%= link_to 'Destroy', producer, :confirm => 'Are you sure?', :method => :delete %>
 			</td>
+
 		</tr>
 	<% end %>			
 

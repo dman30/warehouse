@@ -23,6 +23,10 @@
 		<th>Note:</th>
 		<td><%= @employee.note %></td>
 	</tr>
+	<tr>
+		<th>Contact:</th>
+		<td><%= link_to 'Show Contact', @employee.contact %></td>
+	</tr>
 </table>
 
 <%= link_to 'Edit', edit_employee_path(@employee) %> |

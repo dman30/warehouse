@@ -19,7 +19,7 @@ class DistributorsController < ApplicationController
 	end
 	
 	def new
-		@distributor = Distributor.new
+		@distributor = Distributor.new(:contact => Contact.new)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -33,6 +33,8 @@ class DistributorsController < ApplicationController
 	
 	def create
     @distributor = Distributor.new(params[:distributor])
+
+    @distributor.contact = Contact.new(params[:distributor])
 
     respond_to do |format|
       if @distributor.save

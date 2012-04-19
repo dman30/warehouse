@@ -19,7 +19,7 @@ class ProducersController < ApplicationController
 	end
 	
 	def new
-		@producer = Producer.new#(:contact => Contact.new)
+		@producer = Producer.new(:contact => Contact.new)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,7 +34,7 @@ class ProducersController < ApplicationController
 	def create
     @producer = Producer.new(params[:producer])
     
-    @producer.contact = Contact.new()
+    @producer.contact = Contact.new(params[:producer])
 
     respond_to do |format|
       if @producer.save
