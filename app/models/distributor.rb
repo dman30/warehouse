@@ -2,7 +2,7 @@ class Distributor
   include Mongoid::Document
 
   references_many :articles
-  has_one :contact, as: :contactable, dependent: :destroy
+  has_one :contact, as: :contactable, dependent: :destroy, :autosave => true
   accepts_nested_attributes_for :contact, :autosave => true
   
   field :company_name

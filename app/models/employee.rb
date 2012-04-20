@@ -2,10 +2,11 @@ class Employee
   include Mongoid::Document
   
   references_many :articles
-  has_one :contact, as: :contactable, dependent: :destroy
+  has_one :contact, as: :contactable, dependent: :destroy, :autosave => true
   accepts_nested_attributes_for :contact, :autosave => true
 
   field :gender
+  field :title
   field :first_name
   field :last_name
   field :location
