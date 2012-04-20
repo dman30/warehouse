@@ -42,7 +42,10 @@ class EmployeesController < ApplicationController
   def create
     @employee = Employee.new(params[:employee])
 
-    @employee.contact = Contact.new(params[:employee])
+    @employee.contact.gender = @employee.gender
+    @employee.contact.title = @employee.title
+    @employee.contact.first_name = @employee.first_name
+    @employee.contact.last_name = @employee.last_name
 
     respond_to do |format|
       if @employee.save
