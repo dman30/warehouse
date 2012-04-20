@@ -17,5 +17,68 @@
 	</tr>
 </table>
 
+<table id="contact_show">
+	<tr>
+		<th>Company Name:</th>
+		<td><%= @distributor.contact.company_name %></td>
+	</tr>
+	<tr>
+		<th>Gender:</th>
+		<td><%= @distributor.contact.gender %></td>
+	</tr>
+	<tr>
+		<th>Title:</th>
+		<td><%= @distributor.contact.title %></td>
+	</tr>
+	<tr>
+		<th>First Name:</th>
+		<td><%= @distributor.contact.first_name %></td>
+	</tr>
+	<tr>
+		<th>Last Name:</th>
+		<td><%= @distributor.contact.last_name %></td>
+	</tr>
+	<tr>
+		<th>Phone:</th>
+		<td><%= @distributor.contact.phone %></td>
+	</tr>
+	<tr>
+		<th>Mobile:</th>
+		<td><%= @distributor.contact.mobile %></td>
+	</tr>
+	<tr>
+		<th>Email:</th>
+		<td><%= @distributor.contact.email %></td>
+	</tr>
+	<tr>
+		<th>Website:</th>
+		<td><%= @distributor.contact.website %></td>
+	</tr>
+	<tr>
+		<th>Street 1:</th>
+		<td><%= @distributor.contact.street1 %></td>
+	</tr>
+	<tr>
+		<th>Street 2:</th>
+		<td><%= @distributor.contact.street2 %></td>
+	</tr>
+	<tr>
+		<th>Zipcode:</th>
+		<td><%= @distributor.contact.zipcode %></td>
+	</tr>
+	<tr>
+		<th>Town:</th>
+		<td><%= @distributor.contact.town %></td>
+	</tr>
+	<tr>
+		<th>Country:</th>
+		<td><%= @distributor.contact.country %></td>
+	</tr>
+	<tr>
+		<th>Note:</th>
+		<td><%= @distributor.contact.note %></td>
+	</tr>
+</table>
+
 <%= link_to 'Edit', edit_distributor_path(@distributor) %> |
 <%= link_to 'Back', distributors_path %>

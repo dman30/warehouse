@@ -11,3 +11,13 @@
  *= require_self
  *= require_tree .
 */
+
+#contact_input {
+	border: 1px solid gray;
+	padding: 10px;
+}
+
+#contact_show {
+	border: 1px solid gray;
+	padding: 10px;
+}

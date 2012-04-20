@@ -33,8 +33,7 @@ class DistributorsController < ApplicationController
 	
 	def create
     @distributor = Distributor.new(params[:distributor])
-
-    @distributor.contact = Contact.new(params[:distributor])
+    @distributor.contact.company_name = @distributor.company_name
 
     respond_to do |format|
       if @distributor.save
