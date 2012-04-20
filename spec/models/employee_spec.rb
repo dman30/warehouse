@@ -38,6 +38,10 @@ describe Employee do
       # @employee = FactoryGirl.create(:employee)
     # end
 
+    it "should respond to title" do
+      employee.should respond_to(:title)
+    end
+
     it "should respond to note" do
       employee.should respond_to(:note)
     end
