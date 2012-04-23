@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
@@ -24,7 +25,13 @@ class EmployeesController < ApplicationController
   # GET /employees/new
   # GET /employees/new.json
   def new
-    @employee = Employee.new(:contact => Contact.new)
+    @employee = Employee.new(:contact => Contact.new(
+      :company_name => "Käuferportal", 
+      :website => "http://www.kaeuferportal.de",
+      :street1 => "Friedrichstr. 79",
+      :zipcode => "10117",
+      :town => "Berlin",
+      :country => "Deutschland"))
 
     respond_to do |format|
       format.html # new.html.erb
@@ -42,6 +49,7 @@ class EmployeesController < ApplicationController
   def create
     @employee = Employee.new(params[:employee])
 
+    # @employee.contact.company_name = "Kaeuferportal"
     @employee.contact.gender = @employee.gender
     @employee.contact.title = @employee.title
     @employee.contact.first_name = @employee.first_name
