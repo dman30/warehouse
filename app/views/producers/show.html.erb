@@ -1,21 +1,31 @@
-<h1>Showing Producer</h1>
+<%- model_class = @producer.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human %></h1>
 
-<p id="notice"><%= notice %></p>
+<p>
+  <strong><%= model_class.human_attribute_name(:_type) %>:</strong><br>
+  <%= @producer._type %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:_id) %>:</strong><br>
+  <%= @producer._id %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:company_name) %>:</strong><br>
+  <%= @producer.company_name %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:note) %>:</strong><br>
+  <%= @producer.note %>
+</p>
 
-<table>
-	<tr>
-		<th>Company Name:</th>
-		<td><%= @producer.company_name %></td>
-	</tr>
-	<tr>
-		<th>Note:</th>
-		<td><%= @producer.note %></td>
-	</tr>
-	<tr>
-		<th>Contact:</th>
-		<td><%= link_to 'Show Contact', @producer.contact %></td>
-	</tr>
-</table>
-
-<%= link_to 'Edit', edit_producer_path(@producer) %> |
-<%= link_to 'Back', producers_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              producers_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_producer_path(@producer), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              producer_path(@producer),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>
