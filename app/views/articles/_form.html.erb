@@ -1,4 +1,5 @@
-<%= form_for(@article) do |f| %>
+<%= form_for @article, :html => { :class => 'form-horizontal' } do |f| %>
+
   <% if @article.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
@@ -11,67 +12,78 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="control-group">
+    <%= f.label :producer_id, :class => 'control-label' %>
+    <div class="controls">
     <% if Producer.all.count == 0 %>
-      <%= f.label :producer_id %><br />
       <%= link_to 'New Producer', new_producer_path %>
     <% else %>
-      <%= f.label :producer_id %><br />
-      <%= f.collection_select :producer_id, Producer.all, :id, :company_name, :prompt => true %>
+      <%= f.collection_select :producer_id, Producer.all, :id, :company_name, :prompt => true, :class => 'text_field' %>
     <% end %>
+    </div>
   </div>
-
-  <div class="field">
+  <div class="control-group">
+    <%= f.label :distributor_id, :class => 'control-label' %>
+    <div class="controls">
     <% if Distributor.all.count == 0 %>
-      <%= f.label :distributor_id %><br />
       <%= link_to 'New Distributor', new_distributor_path %>
     <% else %>
-      <%= f.label :distributor_id %><br />
-      <%= f.collection_select :distributor_id, Distributor.all, :id, :company_name, :prompt => true %>
+      <%= f.collection_select :distributor_id, Distributor.all, :id, :company_name, :prompt => true, :class => 'text_field' %>
     <% end %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :category, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :category, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :barcode, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :barcode, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :serial_no, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :serial_no, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :purchase_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :purchase_date, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :warranty_expiration, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :warranty_expiration, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :installation_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :installation_date, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :note, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :note, :rows => 3, :class => 'text_field' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :category %><br />
-    <%= f.text_field :category %>
-  </div>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :barcode %><br />
-    <%= f.text_field :barcode %>
-  </div>
-
-  <div class="field">
-    <%= f.label :serial_no %><br />
-    <%= f.text_field :serial_no %>
-  </div>
-
-  <div class="field">
-    <%= f.label :purchase_date %><br />
-    <%= f.date_select :purchase_date %>
-  </div>
-
-  <div class="field">
-    <%= f.label :warranty_expiration %><br />
-    <%= f.date_select :warranty_expiration %>
-  </div>
-
-  <div class="field">
-    <%= f.label :installation_date %><br />
-    <%= f.date_select :installation_date %>
-  </div>
-
-  <div class="field">
-    <%= f.label :note %><br />
-    <%= f.text_area :note, :rows => 3 %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                articles_path, :class => 'btn' %>
   </div>
 <% end %>
