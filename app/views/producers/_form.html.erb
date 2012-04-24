@@ -1,4 +1,17 @@
 <%= form_for @producer, :html => { :class => 'form-horizontal' } do |f| %>
+
+  <% if @producer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@producer.errors.count, "error") %> prohibited this producer from being saved:</h2>
+
+      <ul>
+      <% @producer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="control-group">
     <%= f.label :company_name, :class => 'control-label' %>
     <div class="controls">
@@ -17,4 +30,11 @@
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 producers_path, :class => 'btn' %>
   </div>
+
+  <h3>Kontaktdaten:</h3>
+
+  <%= f.fields_for :contact do |builder| %>
+    <%= render '/contact_form', :f => builder %>
+  <% end %>
+
 <% end %>
