@@ -21,20 +21,43 @@
   <div class="control-group">
     <%= f.label :note, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :note, :class => 'text_field' %>
+      <%= f.text_area :note, :rows => 3, :class => 'text_field' %>
     </div>
   </div>
+
+  <h3>Kontaktdaten</h3>
+  <%= f.fields_for :contact do |c| %>
+    <div class="control-group">
+      <%= c.label :gender, :class => 'control-label' %>
+      <div class="controls">
+        <%= c.select :gender, ['Herr', 'Frau'], :prompt => true, :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= c.label :title, :class => 'control-label' %>
+      <div class="controls">
+        <%= c.select :title, ['Dr.', 'Prof.'], :prompt => true, :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= c.label :first_name, :class => 'control-label' %>
+      <div class="controls">
+          <%= c.text_field :first_name, :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= c.label :last_name, :class => 'control-label' %>
+      <div class="controls">
+        <%= c.text_field :last_name, :class => 'text_field' %>
+      </div>
+    </div>
+    <%= render '/contact_form', :f => c %>
+  <% end %>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 producers_path, :class => 'btn' %>
   </div>
-
-  <h3>Kontaktdaten:</h3>
-
-  <%= f.fields_for :contact do |builder| %>
-    <%= render '/contact_form', :f => builder %>
-  <% end %>
 
 <% end %>

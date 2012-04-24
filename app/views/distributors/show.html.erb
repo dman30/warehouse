@@ -1,84 +1,23 @@
-<h1>Showing Distributor</h1>
+<%- model_class = @distributor.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human %></h1>
 
-<p id="notice"><%= notice %></p>
+<p>
+  <strong><%= model_class.human_attribute_name(:company_name) %>:</strong><br>
+  <%= @distributor.company_name %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:note) %>:</strong><br>
+  <%= @distributor.note %>
+</p>
 
-<table>
-	<tr>
-		<th>Name:</th>
-		<td><%= @distributor.company_name %></td>
-	</tr>
-	<tr>
-		<th>Note:</th>
-		<td><%= @distributor.note %></td>
-	</tr>
-	<tr>
-		<th>Contact:</th>
-		<td><%= link_to 'Show Contact', @distributor.contact %></td>
-	</tr>
-</table>
-
-<table id="contact_show">
-	<tr>
-		<th>Company Name:</th>
-		<td><%= @distributor.contact.company_name %></td>
-	</tr>
-	<tr>
-		<th>Gender:</th>
-		<td><%= @distributor.contact.gender %></td>
-	</tr>
-	<tr>
-		<th>Title:</th>
-		<td><%= @distributor.contact.title %></td>
-	</tr>
-	<tr>
-		<th>First Name:</th>
-		<td><%= @distributor.contact.first_name %></td>
-	</tr>
-	<tr>
-		<th>Last Name:</th>
-		<td><%= @distributor.contact.last_name %></td>
-	</tr>
-	<tr>
-		<th>Phone:</th>
-		<td><%= @distributor.contact.phone %></td>
-	</tr>
-	<tr>
-		<th>Mobile:</th>
-		<td><%= @distributor.contact.mobile %></td>
-	</tr>
-	<tr>
-		<th>Email:</th>
-		<td><%= @distributor.contact.email %></td>
-	</tr>
-	<tr>
-		<th>Website:</th>
-		<td><%= @distributor.contact.website %></td>
-	</tr>
-	<tr>
-		<th>Street 1:</th>
-		<td><%= @distributor.contact.street1 %></td>
-	</tr>
-	<tr>
-		<th>Street 2:</th>
-		<td><%= @distributor.contact.street2 %></td>
-	</tr>
-	<tr>
-		<th>Zipcode:</th>
-		<td><%= @distributor.contact.zipcode %></td>
-	</tr>
-	<tr>
-		<th>Town:</th>
-		<td><%= @distributor.contact.town %></td>
-	</tr>
-	<tr>
-		<th>Country:</th>
-		<td><%= @distributor.contact.country %></td>
-	</tr>
-	<tr>
-		<th>Note:</th>
-		<td><%= @distributor.contact.note %></td>
-	</tr>
-</table>
-
-<%= link_to 'Edit', edit_distributor_path(@distributor) %> |
-<%= link_to 'Back', distributors_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              distributors_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_distributor_path(@distributor), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              distributor_path(@distributor),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>

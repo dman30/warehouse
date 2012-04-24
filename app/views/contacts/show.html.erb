@@ -1,69 +1,79 @@
-<h1>Showing Contact</h1>
+<%- model_class = @contact.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human %></h1>
 
-<p id="notice"><%= notice %></p>
+<p>
+  <strong><%= model_class.human_attribute_name(:contactable_type) %>:</strong><br>
+  <%= @contact.contactable_type %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:company_name) %>:</strong><br>
+  <%= @contact.company_name %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:gender) %>:</strong><br>
+  <%= @contact.gender %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:title) %>:</strong><br>
+  <%= @contact.title %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:first_name) %>:</strong><br>
+  <%= @contact.first_name %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:last_name) %>:</strong><br>
+  <%= @contact.last_name %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:phone) %>:</strong><br>
+  <%= @contact.phone %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:mobile) %>:</strong><br>
+  <%= @contact.mobile %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:email) %>:</strong><br>
+  <%= @contact.email %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:website) %>:</strong><br>
+  <%= @contact.website %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:street1) %>:</strong><br>
+  <%= @contact.street1 %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:street2) %>:</strong><br>
+  <%= @contact.street2 %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:zipcode) %>:</strong><br>
+  <%= @contact.zipcode %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:town) %>:</strong><br>
+  <%= @contact.town %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:country) %>:</strong><br>
+  <%= @contact.country %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:note) %>:</strong><br>
+  <%= @contact.note %>
+</p>
 
-<table id="contact_show">
-	<tr>
-		<th>Company Name:</th>
-		<td><%= @contact.company_name %></td>
-	</tr>
-	<tr>
-		<th>Gender:</th>
-		<td><%= @contact.gender %></td>
-	</tr>
-	<tr>
-		<th>Title:</th>
-		<td><%= @contact.title %></td>
-	</tr>
-	<tr>
-		<th>First Name:</th>
-		<td><%= @contact.first_name %></td>
-	</tr>
-	<tr>
-		<th>Last Name:</th>
-		<td><%= @contact.last_name %></td>
-	</tr>
-	<tr>
-		<th>Phone:</th>
-		<td><%= @contact.phone %></td>
-	</tr>
-	<tr>
-		<th>Mobile:</th>
-		<td><%= @contact.mobile %></td>
-	</tr>
-	<tr>
-		<th>Email:</th>
-		<td><%= @contact.email %></td>
-	</tr>
-	<tr>
-		<th>Website:</th>
-		<td><%= @contact.website %></td>
-	</tr>
-	<tr>
-		<th>Street 1:</th>
-		<td><%= @contact.street1 %></td>
-	</tr>
-	<tr>
-		<th>Street 2:</th>
-		<td><%= @contact.street2 %></td>
-	</tr>
-	<tr>
-		<th>Zipcode:</th>
-		<td><%= @contact.zipcode %></td>
-	</tr>
-	<tr>
-		<th>Town:</th>
-		<td><%= @contact.town %></td>
-	</tr>
-	<tr>
-		<th>Country:</th>
-		<td><%= @contact.country %></td>
-	</tr>
-	<tr>
-		<th>Note:</th>
-		<td><%= @contact.note %></td>
-	</tr>
-</table>
-
-<%= link_to 'Edit', edit_contact_path(@article) %> |
-<%= link_to 'Back', contacts_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              contacts_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_contact_path(@contact), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              contact_path(@contact),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>
