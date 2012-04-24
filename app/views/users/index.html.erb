@@ -1,39 +1,35 @@
-<div id="user_list">
-  <h1>Listing users</h1>
-
-  <table>
+<%- model_class = User.new.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+<table class="table table-striped">
+  <thead>
     <tr>
-      <th>Email</th>
-      <th>Password</th>
-      <th>Note</th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:password) %></th>
+      <th><%= model_class.human_attribute_name(:note) %></th>
+
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.email, user_path(user) %></td>
+        <td><%= user.password %></td>
+        <td><%= user.note %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_user_path(user), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      user_path(user),
+                      :method => :delete,
+                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-  <% @users.each do |user| %>
-    <tr>
-
-      <td class="list_attributes">
-        <%= user.email %>
-      </td>
-
-      <td class="list_attributes">
-        <%= user.password %>
-      </td>
-
-      <td class="list_attributes">
-        <%= user.note %>
-      </td>
-
-      <td class="list_actions">
-        <%= link_to 'Show', user %>
-        <%= link_to 'Edit', edit_user_path(user) %>
-        <%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %>
-      </td>
-    </tr>
-  <% end %>
-  
-  </table>
-</div>
-
-<br />
-
-<%= link_to 'New User', new_user_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_user_path,
+            :class => 'btn btn-primary' %>
