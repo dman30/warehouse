@@ -34,7 +34,6 @@ class ProducersController < ApplicationController
 	def create
     @producer = Producer.new(params[:producer])
     @producer.contact.company_name = @producer.company_name
-    #@producer.contact = Contact.new(params[:producer])
 
     respond_to do |format|
       if @producer.save
