@@ -9,6 +9,28 @@
   <strong><%= model_class.human_attribute_name(:note) %>:</strong><br>
   <%= @producer.note %>
 </p>
+<p>
+  <strong><%= model_class.human_attribute_name(:contact) %> Name:</strong><br>
+  <%= @producer.contact.gender + ' ' + @producer.contact.title + ' ' + @producer.contact.first_name + ' ' + @producer.contact.last_name %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:contact) %> Address:</strong><br>
+  <%= @producer.contact.street1 %><br>
+  <%= @producer.contact.street2 if @producer.contact.street2 %>
+  <%= @producer.contact.zipcode + ' ' + @producer.contact.town %><br>
+  <%= @producer.contact.country %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:contact) %> Data:</strong><br>
+  Phone: <%= @producer.contact.phone %><br>
+  Mobile: <%= @producer.contact.mobile %><br>
+  E-Mail: <%= @producer.contact.email %><br>
+  Website: <%= @producer.contact.website %>
+</p>
+<p>
+  <strong><%= model_class.human_attribute_name(:contact) %> Note:</strong><br>
+  <%= @producer.contact.note %>
+</p>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
