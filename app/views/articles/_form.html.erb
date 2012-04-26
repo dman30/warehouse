@@ -4,6 +4,7 @@
 
     <%= f.input :producer_id, :collection => Producer.all, :label_method => :company_name, :prompt => "Select Producer" %>
     <%= f.input :distributor_id, :collection => Distributor.all, :label_method => :company_name, :prompt => "Select Distributor" %>
+    <%= f.input :employee_id, :collection => Employee.all, :label_method => :full_name, :prompt => "Select Employee" %>
     <%= f.input :category %>
     <%= f.input :name %>
     <%= f.input :barcode %>

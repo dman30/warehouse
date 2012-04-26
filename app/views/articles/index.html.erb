@@ -10,6 +10,7 @@
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:purchase_date) %></th>
       <th><%= model_class.human_attribute_name(:note) %></th>
+      <th><%= model_class.human_attribute_name(:employee) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -32,6 +33,12 @@
         <td><%= link_to article.name, article_path(article) %></td>
         <td><%= article.purchase_date %></td>
         <td><%= article.note %></td>
+        <td><% if article.employee %>
+          <%= article.employee.full_name %>
+          <% else %>
+            Warehouse
+          <% end %>
+        </td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_article_path(article), :class => 'btn btn-mini' %>
