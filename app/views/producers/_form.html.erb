@@ -1,63 +1,30 @@
-<%= form_for @producer, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for @producer, :html => { :class => 'form-horizontal' } do |f| %>
 
-  <% if @producer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@producer.errors.count, "error") %> prohibited this producer from being saved:</h2>
+    <legend><%= controller.action_name.capitalize %> Producer</legend>
 
-      <ul>
-      <% @producer.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <%= f.input :company_name %>
+    <%= f.input :note, :as => :text, :input_html => { :rows => 3 } %>
 
-  <div class="control-group">
-    <%= f.label :company_name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :company_name, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :note, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :note, :rows => 3, :class => 'text_field' %>
-    </div>
-  </div>
-
-  <h3>Kontaktdaten</h3>
-  <%= f.fields_for :contact do |c| %>
-    <div class="control-group">
-      <%= c.label :gender, :class => 'control-label' %>
-      <div class="controls">
-        <%= c.select :gender, ['Herr', 'Frau'], :prompt => true, :class => 'text_field' %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= c.label :title, :class => 'control-label' %>
-      <div class="controls">
-        <%= c.select :title, ['Dr.', 'Prof.'], :prompt => true, :class => 'text_field' %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= c.label :first_name, :class => 'control-label' %>
-      <div class="controls">
-          <%= c.text_field :first_name, :class => 'text_field' %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= c.label :last_name, :class => 'control-label' %>
-      <div class="controls">
-        <%= c.text_field :last_name, :class => 'text_field' %>
-      </div>
-    </div>
-    <%= render '/contact_form', :f => c %>
-  <% end %>
-
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 producers_path, :class => 'btn' %>
-  </div>
+    </div>  
+
+    <legend>Contact Data (optional)</legend>
+
+    <%= f.simple_fields_for :contact do |c| %>
+      <%= c.input :gender, :collection => ['Frau', 'Herr'], :prompt => "Select gender" %>
+      <%= c.input :title, :collection => ['Dr.', 'Prof.'], :prompt => "Select title" %>
+      <%= c.input :first_name %>
+      <%= c.input :last_name %>
+      <%= render '/contact_form', :f => c %>
+    <% end %>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                producers_path, :class => 'btn' %>
+    </div>  
 
 <% end %>

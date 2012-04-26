@@ -1,56 +1,31 @@
-<%= form_for @employee, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for @employee, :html => { :class => 'form-horizontal' } do |f| %>
 
-  <div class="control-group">
-    <%= f.label :gender, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.select :gender, ['Herr', 'Frau'], :prompt => true, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :title, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.select :title, ['Dr.', 'Prof.'], :prompt => true, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :first_name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :first_name, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :last_name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :last_name, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :location, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.select :location, ['4. OG', '5. OG', '6. OG'], :prompt => true, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :note, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :note, :rows => 3, :class => 'text_field' %>
-    </div>
-  </div>
+    <legend><%= controller.action_name.capitalize %> Employee</legend>
 
-  <h3>Kontaktdaten</h3>
-  <%= f.fields_for :contact do |c| %>
-    <div class="control-group">
-    <%= c.label :company_name, :class => 'control-label' %>
-    <div class="controls">
-      <%= c.text_field :company_name, :class => 'text_field' %>
-    </div>
-  </div>
-    <%= render '/contact_form', :f => c %>
-  <% end %>
+    <%= f.input :gender, :collection => ['Frau', 'Herr'], :prompt => "Select gender" %>
+    <%= f.input :title, :collection => ['Dr.', 'Prof.'], :prompt => "Select title" %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :location, :collection => ['4. OG', '5. OG', '6. OG'], :prompt => "Select location" %>
+    <%= f.input :note, :as => :text, :input_html => { :rows => 3 } %>
 
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 employees_path, :class => 'btn' %>
-  </div>
+    </div>  
+
+    <legend>Contact Data (optional)</legend>
+
+    <%= f.simple_fields_for :contact do |c| %>
+      <%= c.input :company_name %>
+      <%= render '/contact_form', :f => c %>
+    <% end %>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                employees_path, :class => 'btn' %>
+    </div>  
+
 <% end %>
