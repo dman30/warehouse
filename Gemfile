@@ -6,8 +6,8 @@ gem "bson_ext", ">= 1.3.1"
 gem "mongoid", ">= 2.3.3"
 
 gem 'sqlite3'
-gem "omniauth", ">= 1.0.0"
-gem "omniauth-oauth2"
+gem "omniauth", ">= 1.0.3"
+gem "omniauth-google"
 gem "omniauth-kaeuferportal"
 gem 'spork', '~> 0.9.0.rc'
 

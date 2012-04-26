@@ -1,10 +1,20 @@
 Warehouse::Application.routes.draw do
-  resources :users
+  # root_path
+  root :to => "articles#index"
+
+  # restful resources
+  resources :users, :only => [ :show, :edit, :update ]
   resources :articles
  	resources :contacts
  	resources :distributors
  	resources :employees
  	resources :producers
+
+  # login/logout/omniauth routes
+  match '/signin' => 'sessions#new', :as => :signin
+  match '/signout' => 'sessions#destroy', :as => :signout
+  match '/auth/:provider/callback' => 'sessions#create'
+  match '/auth/failure' => 'sessions#failure'
 
 
   # The priority is based upon order of creation:
