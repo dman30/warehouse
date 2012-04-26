@@ -16,7 +16,7 @@
   </thead>
   <tbody>
     <% @contacts.each do |contact| %>
-      <tr>
+      <tr id="<%=dom_id(contact)%>">
         <td><%= link_to contact.contactable_type, contact_path(contact) %></td>
         <td><%= contact.company_name %></td>
         <td><%= contact.gender %></td>
@@ -31,6 +31,7 @@
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       contact_path(contact),
                       :method => :delete,
+                      remote: true,
                       :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
                       :class => 'btn btn-mini btn-danger' %>
         </td>

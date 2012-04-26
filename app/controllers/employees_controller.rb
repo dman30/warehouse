@@ -91,6 +91,7 @@ class EmployeesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to employees_url }
       format.json { head :no_content }
+      format.js
     end
   end
 end
