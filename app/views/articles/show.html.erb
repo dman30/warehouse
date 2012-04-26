@@ -5,11 +5,19 @@
 
 <p>
   <strong><%= model_class.human_attribute_name(:producer) %>:</strong><br>
-  <%= @article.producer.company_name %>
+  <% if @article.producer %>
+          <%= @article.producer.company_name %>
+          <% else %>
+            - No Producer -
+          <% end %>
 </p>
 <p>
   <strong><%= model_class.human_attribute_name(:distributor) %>:</strong><br>
-  <%= @article.distributor.company_name %>
+  <% if @article.distributor %>
+          <%= @article.distributor.company_name %>
+          <% else %>
+            - No Distributor -
+          <% end %>
 </p>
 <p>
   <strong><%= model_class.human_attribute_name(:category) %>:</strong><br>

@@ -15,8 +15,18 @@
   <tbody>
     <% @articles.each do |article| %>
       <tr>
-        <td><%= article.producer.company_name %></td>
-        <td><%= article.distributor.company_name %></td>
+        <td><% if article.producer %>
+          <%= article.producer.company_name %>
+          <% else %>
+            - No Producer -
+          <% end %>
+        </td>
+        <td><% if article.distributor %>
+          <%= article.distributor.company_name %>
+          <% else %>
+            - No Distributor -
+          <% end %>
+        </td>
         <td><%= article.category %></td>
         <td><%= link_to article.name, article_path(article) %></td>
         <td><%= article.purchase_date %></td>
