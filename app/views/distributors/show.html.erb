@@ -1,8 +1,6 @@
 <%- model_class = @distributor.class -%>
 <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong><%= model_class.human_attribute_name(:company_name) %>:</strong><br>
   <%= @distributor.company_name %>
