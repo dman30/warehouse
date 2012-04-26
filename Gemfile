@@ -19,6 +19,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'simple_form'
 
 group :development, :test do
   gem "rspec-rails", ">= 2.8.0.rc1"
