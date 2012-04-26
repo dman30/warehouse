@@ -20,6 +20,7 @@ end
 
 gem 'jquery-rails'
 gem 'simple_form'
+gem 'country-select'
 
 group :development, :test do
   gem "rspec-rails", ">= 2.8.0.rc1"

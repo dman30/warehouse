@@ -31,7 +31,7 @@ class EmployeesController < ApplicationController
       :street1 => "Friedrichstr. 79",
       :zipcode => "10117",
       :town => "Berlin",
-      :country => "Deutschland"))
+      :country => "Germany"))
 
     respond_to do |format|
       format.html # new.html.erb
