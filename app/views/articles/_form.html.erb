@@ -1,89 +1,22 @@
-<%= form_for @article, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for @article, :html => { :class => 'form-horizontal' } do |f| %>
 
-  <% if @article.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+    <legend><%= controller.action_name.capitalize %> Article</legend>
 
-      <ul>
-      <% @article.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <%= f.input :producer_id, :collection => Producer.all, :label_method => :company_name, :prompt => "Select Producer" %>
+    <%= f.input :distributor_id, :collection => Distributor.all, :label_method => :company_name, :prompt => "Select Distributor" %>
+    <%= f.input :category %>
+    <%= f.input :name %>
+    <%= f.input :barcode %>
+    <%= f.input :serial_no %>
+    <%= f.input :purchase_date, :as => :date %>
+    <%= f.input :warranty_expiration, :as => :date %>
+    <%= f.input :installation_date, :as => :date %>
+    <%= f.input :note, :as => :text, :input_html => { :rows => 3 } %>
 
-  <div class="control-group">
-    <%= f.label :producer_id, :class => 'control-label' %>
-    <div class="controls">
-    <% if Producer.all.count == 0 %>
-      <%= link_to 'New Producer', new_producer_path %>
-    <% else %>
-      <%= f.collection_select :producer_id, Producer.all, :id, :company_name, :prompt => true, :class => 'text_field' %>
-    <% end %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :distributor_id, :class => 'control-label' %>
-    <div class="controls">
-    <% if Distributor.all.count == 0 %>
-      <%= link_to 'New Distributor', new_distributor_path %>
-    <% else %>
-      <%= f.collection_select :distributor_id, Distributor.all, :id, :company_name, :prompt => true, :class => 'text_field' %>
-    <% end %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :category, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :category, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :name, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :barcode, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :barcode, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :serial_no, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :serial_no, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :purchase_date, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.date_select :purchase_date, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :warranty_expiration, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.date_select :warranty_expiration, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :installation_date, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.date_select :installation_date, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :note, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :note, :rows => 3, :class => 'text_field' %>
-    </div>
-  </div>
-
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 articles_path, :class => 'btn' %>
-  </div>
+    </div> 
+
 <% end %>

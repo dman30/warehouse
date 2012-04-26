@@ -1,41 +1,18 @@
-<%= form_for @contact, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for @contact, :html => { :class => 'form-horizontal' } do |f| %>
 
-  <div class="control-group">
-    <%= f.label :company_name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :company_name, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :gender, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.select :gender, ['Herr', 'Frau'], :prompt => true, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :title, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.select :title, ['Dr.', 'Prof.'], :prompt => true, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :first_name, :class => 'control-label' %>
-    <div class="controls">
-        <%= f.text_field :first_name, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :last_name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :last_name, :class => 'text_field' %>
-    </div>
-  </div>
-  
-  <%= render '/contact_form', :f => f %>
+  <legend><%= controller.action_name.capitalize %> Contact</legend>
+
+    <%= f.input :gender, :collection => ['Frau', 'Herr'], :prompt => "- Select gender -" %>
+    <%= f.input :title, :collection => ['Dr.', 'Prof.'], :prompt => "- Select title -" %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :company_name %>
+    <%= render '/contact_form', :f => f %>
 
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 contacts_path, :class => 'btn' %>
-  </div>
+  </div>  
+
 <% end %>
