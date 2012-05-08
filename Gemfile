@@ -28,5 +28,4 @@ group :development, :test do
   gem "webrat", ">= 0.7.2"
   gem "factory_girl", "< 3"
   gem 'shoulda'
-  gem 'ruby-debug19', :require => 'ruby-debug'
 end
