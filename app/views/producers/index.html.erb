@@ -12,7 +12,7 @@
   <tbody>
     <% @producers.each do |producer| %>
       <tr id="<%=dom_id(producer)%>">
-        <td><%= link_to producer.company_name, producer_path(producer) %></td>
+        <td><%= link_to producer.company_name, producer_path(producer), :class => "producer_link" %></td>
         <td><%= producer.note %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
