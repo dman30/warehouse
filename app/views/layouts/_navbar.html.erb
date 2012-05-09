@@ -1,0 +1,34 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      	
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <a class="brand" href=<%= articles_path %>>KP Warehouse</a>
+
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li><%= link_to "Articles", articles_path %></li>
+          <li><%= link_to "Producers", producers_path %></li>
+          <li><%= link_to "Distributors", distributors_path %></li>
+          <li><%= link_to "Employees", employees_path %></li>
+          <li><%= link_to "Contacts", contacts_path %></li>
+            <% if user_signed_in? %>
+							<em>
+						    Logged in as <%= current_user.name %>
+						    ( <%= link_to('logout', signout_path) %> )
+						  </em>
+						<% else %>
+						  <em>Already have an account?</em>
+						  <%= link_to('Login', signin_path)  %>
+						<% end %>
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
