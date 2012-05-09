@@ -3,11 +3,27 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
+	# show details in right #details div
 	$('.article_link').on
 		click: (e) ->
 			path = $(@).attr 'href'
-			# e.preventDefault()
+			e.preventDefault()
 			$('#details').load(path)
-			return false
+
+	# open modal dialog to create article
+	# $('#create_article').live
+	# 	click: (e) ->
+	# 		e.preventDefault()
+	# 		path = $(@).attr 'href'
+	# 		$('#myModal').load(path)
+	# 		$('#myModal').modal ->
+	# 			show: true
+	# try to catch submit form button and do sth useful
+	# $('input#submit_form').live
+	# 	click: (e) ->
+	# 		e.preventDefault()
+	# 		$('modal-form').submit()
+
+
 
 	
