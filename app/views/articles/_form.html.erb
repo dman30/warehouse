@@ -1,9 +1,10 @@
+<h1><%= controller.action_name.capitalize %> Article <%= @article.name %></h1>
+
 <%= simple_form_for @article, :html => { :class => 'form-horizontal' } do |f| %>
 
     <%= f.error_notification %>
 
     <div class="well">
-    <legend><%= controller.action_name.capitalize %> Article</legend>
 
     <%= f.input :producer_id, :collection => Producer.all, :label_method => :company_name, :prompt => "Select Producer" %>
     <%= f.input :distributor_id, :collection => Distributor.all, :label_method => :company_name, :prompt => "Select Distributor" %>

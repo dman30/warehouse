@@ -4,11 +4,17 @@
 
 $ ->
 	# show details in right #details div
-	$('.article_link').on
+	$('.article_link').live
 		click: (e) ->
 			path = $(@).attr 'href'
 			e.preventDefault()
 			$('#details').load(path)
+
+	$('#edit').live
+		click: (e) ->
+			path = $(@).attr 'href'
+			e.preventDefault()
+			$('#content').load(path)
 
 	# open modal dialog to create article
 	# $('#create_article').live
