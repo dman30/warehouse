@@ -19,4 +19,12 @@ class Contact
  	field :country
   field :note
 
+  def full_name
+    if self.title != ""
+      self.gender + ' ' + self.title + ' ' + self.first_name + ' ' + self.last_name
+    else
+      self.gender + ' ' + self.first_name + ' ' + self.last_name      
+    end
+  end
+
 end
