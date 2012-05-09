@@ -17,7 +17,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render :layout => false } # show.html.erb
       format.json { render :json => @employee }
     end
   end
