@@ -1,15 +1,12 @@
 <%= simple_form_for @distributor, :html => { :class => 'form-horizontal' } do |f| %>
 
+  <%= f.error_notification %>
+
+  <div class="well">
     <legend><%= controller.action_name.capitalize %> Distributor</legend>
 
     <%= f.input :company_name %>
     <%= f.input :note, :as => :text, :input_html => { :rows => 3 } %>
-
-    <div class="form-actions">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                distributors_path, :class => 'btn' %>
-    </div>  
 
     <legend>Contact Data (optional)</legend>
 
@@ -20,11 +17,12 @@
       <%= c.input :last_name %>
       <%= render '/contact_form', :f => c %>
     <% end %>
+  </div>
 
-    <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                distributors_path, :class => 'btn' %>
-    </div>  
+  <div class="form-actions">
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+              distributors_path, :class => 'btn' %>
+  </div>  
 
 <% end %>

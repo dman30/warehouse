@@ -1,5 +1,8 @@
 <%= simple_form_for @employee, :html => { :class => 'form-horizontal' } do |f| %>
 
+  <%= f.error_notification %>
+
+  <div class="well">
     <legend><%= controller.action_name.capitalize %> Employee</legend>
 
     <%= f.input :gender, :collection => ['Frau', 'Herr'], :prompt => "Select gender" %>
@@ -21,6 +24,7 @@
       <%= c.input :company_name %>
       <%= render '/contact_form', :f => c %>
     <% end %>
+  </div>
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
