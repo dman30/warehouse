@@ -51,7 +51,7 @@ class ProducersController < ApplicationController
 
     respond_to do |format|
       if @producer.update_attributes(params[:producer])
-        format.html { redirect_to @producer, :notice => 'Producer was successfully updated.' }
+        format.html { redirect_to articles_url, :notice => "Producer #{@producer.company_name} was successfully updated." }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }

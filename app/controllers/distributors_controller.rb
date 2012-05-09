@@ -51,7 +51,7 @@ class DistributorsController < ApplicationController
 
     respond_to do |format|
       if @distributor.update_attributes(params[:distributor])
-        format.html { redirect_to @distributor, :notice => 'Distributor was successfully updated.' }
+        format.html { redirect_to articles_url, :notice => "Distributor #{@distributor.company_name} was successfully updated." }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }

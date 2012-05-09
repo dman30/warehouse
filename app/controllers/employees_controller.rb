@@ -73,7 +73,7 @@ class EmployeesController < ApplicationController
 
     respond_to do |format|
       if @employee.update_attributes(params[:employee])
-        format.html { redirect_to @employee, :notice => 'Employee was successfully updated.' }
+        format.html { redirect_to articles_url, :notice => "Employee #{@employee.full_name} was successfully updated." }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
