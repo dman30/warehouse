@@ -4,14 +4,14 @@
 
     <%= f.input :producer_id, :collection => Producer.all, :label_method => :company_name, :prompt => "Select Producer" %>
     <%= f.input :distributor_id, :collection => Distributor.all, :label_method => :company_name, :prompt => "Select Distributor" %>
-    <%= f.input :employee_id, :collection => Employee.all, :label_method => :full_name, :prompt => "Select Employee" %>
+    <%= f.input :employee_id, :collection => Employee.all, :label_method => :full_name, :prompt => "Select Employee", :include_blank => true %>
     <%= f.input :category %>
     <%= f.input :name %>
     <%= f.input :barcode %>
     <%= f.input :serial_no %>
-    <%= f.input :purchase_date, :as => :date %>
-    <%= f.input :warranty_expiration, :as => :date %>
-    <%= f.input :installation_date, :as => :date %>
+    <%= f.input :purchase_date, :as => :date, :prompt => true %>
+    <%= f.input :warranty_expiration, :as => :date, :prompt => true %>
+    <%= f.input :installation_date, :as => :date, :prompt => true %>
     <%= f.input :note, :as => :text, :input_html => { :rows => 3 } %>
 
     <div class="form-actions">
