@@ -1,36 +1,50 @@
 <%- model_class = @producer.class -%>
-<h1><%=t '.title', :default => model_class.model_name.human %></h1>
 
-<p>
-  <strong><%= model_class.human_attribute_name(:company_name) %>:</strong><br>
-  <%= @producer.company_name %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:note) %>:</strong><br>
-  <%= @producer.note %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:contact) %> Name:</strong><br>
-  <%= @producer.contact.gender + ' ' + @producer.contact.title + ' ' + @producer.contact.first_name + ' ' + @producer.contact.last_name %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:contact) %> Address:</strong><br>
-  <%= @producer.contact.street1 %><br>
-  <%= @producer.contact.street2 if @producer.contact.street2 %>
-  <%= @producer.contact.zipcode + ' ' + @producer.contact.town %><br>
-  <%= @producer.contact.country %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:contact) %> Data:</strong><br>
-  Phone: <%= @producer.contact.phone %><br>
-  Mobile: <%= @producer.contact.mobile %><br>
-  E-Mail: <%= @producer.contact.email %><br>
-  Website: <%= @producer.contact.website %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:contact) %> Note:</strong><br>
-  <%= @producer.contact.note %>
-</p>
+<div class="well">
+  <h3><%=t '.title', :default => model_class.model_name.human %></h3>
+  <p>
+    <strong><%= @producer.contact.company_name %></strong>
+  </p>
+  <% if @producer.note != "" %>
+    <p>
+      <i class="icon-info-sign"></i>
+      <%= @producer.note %>
+    </p>
+  <% end %> 
+</div>
+
+<div class="well">
+  <h3>Contact</h3>
+  <p>
+    <%= @producer.contact.gender %> 
+    <% if @producer.contact.title != "" %>
+      (<%= @producer.contact.title %>)
+    <% end %>
+    <%= @producer.contact.first_name %> <%= @producer.contact.last_name %>
+  </p>
+  <address>
+    <%= @producer.contact.street1 %><br>
+    <%= @producer.contact.street2 if @producer.contact.street2 %>
+    <%= @producer.contact.zipcode + ' ' + @producer.contact.town %><br>
+    <%= @producer.contact.country %>
+  </address>
+  <p>
+    <i class="icon-user"></i>
+    <% if @producer.contact.phone != "" %> <%= @producer.contact.phone %> <% else %> - <% end %> <br>
+    <i class="icon-user"></i>
+    <% if @producer.contact.mobile != "" %> <%= @producer.contact.mobile %> <% else %> - <% end %> <br>
+    <i class="icon-envelope"></i>
+    <% if @producer.contact.email != "" %> <%= @producer.contact.email %> <% else %> - <% end %> <br>
+    <i class="icon-globe"></i>
+    <% if @producer.contact.website != "" %> <%= @producer.contact.website %> <% else %> - <% end %>
+  </p>
+  <% if @producer.contact.note != "" %>
+    <p>
+      <i class="icon-info-sign"></i>
+      <%= @producer.contact.note %>
+    </p>
+  <% end %>
+</div>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

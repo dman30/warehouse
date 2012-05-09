@@ -1,54 +1,50 @@
 <%- model_class = @article.class -%>
-<h1><%=t '.title', :default => model_class.model_name.human %></h1>
 
-<p>
-  <strong><%= model_class.human_attribute_name(:producer) %>:</strong><br>
-  <% if @article.producer %>
-          <%= @article.producer.company_name %>
-          <% else %>
-            - No Producer -
-          <% end %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:distributor) %>:</strong><br>
-  <% if @article.distributor %>
-          <%= @article.distributor.company_name %>
-          <% else %>
-            - No Distributor -
-          <% end %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:category) %>:</strong><br>
-  <%= @article.category %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:name) %>:</strong><br>
-  <%= @article.name %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:barcode) %>:</strong><br>
-  <%= @article.barcode %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:serial_no) %>:</strong><br>
-  <%= @article.serial_no %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:purchase_date) %>:</strong><br>
-  <%= @article.purchase_date %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:warranty_expiration) %>:</strong><br>
-  <%= @article.warranty_expiration %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:installation_date) %>:</strong><br>
-  <%= @article.installation_date %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:note) %>:</strong><br>
-  <%= @article.note %>
-</p>
+<div class="well">
+<h3><%=t '.title', :default => model_class.model_name.human %></h3>
+
+  <p>
+    <strong><%= @article.name %></strong>
+  </p>
+  <p>
+    <em><%= model_class.human_attribute_name(:category) %>:</em>
+    <%= @article.category %><br>
+  </p>
+  <p>
+    <em><%= model_class.human_attribute_name(:producer) %>:</em>
+    <% if @article.producer %>
+      <%= @article.producer.company_name %>
+    <% else %>
+      - No Producer -
+    <% end %><br>
+    <em><%= model_class.human_attribute_name(:distributor) %>:</em>
+    <% if @article.distributor %>
+      <%= @article.distributor.company_name %>
+    <% else %>
+      - No Distributor -
+    <% end %>
+  </p>
+  <p>
+    <em><%= model_class.human_attribute_name(:barcode) %>:</em>
+    <%= @article.barcode %><br>
+    <em><%= model_class.human_attribute_name(:serial_no) %>:</em>
+    <%= @article.serial_no %>
+  </p>
+  <p>
+    <em><%= model_class.human_attribute_name(:purchase_date) %>:</em>
+    <%= @article.purchase_date %><br>
+    <em><%= model_class.human_attribute_name(:warranty_expiration) %>:</em>
+    <%= @article.warranty_expiration %><br>
+    <em><%= model_class.human_attribute_name(:installation_date) %>:</em>
+    <%= @article.installation_date %>
+  </p>
+  <% if @article.note != "" %>
+    <p>
+      <em class="icon-info-sign"></em>
+      <%= @article.note %>
+    </p>
+  <% end %>
+</div>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

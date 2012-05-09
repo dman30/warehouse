@@ -1,30 +1,46 @@
 <%- model_class = @employee.class -%>
-<h1><%=t '.title', :default => model_class.model_name.human %></h1>
 
-<p>
-  <strong><%= model_class.human_attribute_name(:gender) %>:</strong><br>
-  <%= @employee.gender %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:title) %>:</strong><br>
-  <%= @employee.title %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:first_name) %>:</strong><br>
-  <%= @employee.first_name %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:last_name) %>:</strong><br>
-  <%= @employee.last_name %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:location) %>:</strong><br>
-  <%= @employee.location %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:note) %>:</strong><br>
-  <%= @employee.note %>
-</p>
+<div class="well">
+  <h3><%=t '.title', :default => model_class.model_name.human %></h3>
+  <p>
+    <strong><%= @employee.full_name %></strong>
+  </p>
+  <p>
+    <em><%= model_class.human_attribute_name(:location) %>:</em>
+    <%= @employee.location %>
+  </p>
+  <% if @employee.note != "" %>
+    <p>
+      <em class="icon-info-sign"></em>
+      <%= @employee.note %>
+    </p>
+  <% end %> 
+</div>
+
+<div class="well">
+  <h3>Contact</h3>
+  <p>
+    <%= @employee.contact.company_name %>
+  </p>
+  <address>
+    <%= @employee.contact.street1 %><br>
+    <%= @employee.contact.street2 if @employee.contact.street2 %>
+    <%= @employee.contact.zipcode + ' ' + @employee.contact.town %><br>
+    <%= @employee.contact.country %>
+  </address>
+  <p>
+    Phone: <% if @employee.contact.phone != "" %> <%= @employee.contact.phone %> <% else %> - <% end %> <br>
+    Mobile: <% if @employee.contact.mobile != "" %> <%= @employee.contact.mobile %> <% else %> - <% end %> <br>
+    E-Mail: <% if @employee.contact.email != "" %> <%= @employee.contact.email %> <% else %> - <% end %> <br>
+    Website: <% if @employee.contact.website != "" %> <%= @employee.contact.website %> <% else %> - <% end %>
+  </p>
+  <% if @employee.contact.note != "" %>
+    <p>
+      <i class="icon-info-sign"></i>
+      <%= @employee.contact.note %>
+    </p>
+  <% end %>
+</div>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

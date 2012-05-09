@@ -1,14 +1,43 @@
 <%- model_class = @distributor.class -%>
-<h1><%=t '.title', :default => model_class.model_name.human %></h1>
 
-<p>
-  <strong><%= model_class.human_attribute_name(:company_name) %>:</strong><br>
-  <%= @distributor.company_name %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:note) %>:</strong><br>
-  <%= @distributor.note %>
-</p>
+<div class="well">
+  <h3><%=t '.title', :default => model_class.model_name.human %></h3>
+  <p>
+    <strong><%= @distributor.company_name %></strong>
+  </p>
+  <% if @distributor.note != "" %>
+    <p>
+      <i class="icon-info-sign"></i>
+      <%= @distributor.note %>
+    </p>
+  <% end %> 
+</div>
+
+<div class="well">
+  <h3>Contact</h3>
+  <p>
+    <%= @distributor.contact.full_name %> 
+    <%= @distributor.company_name %>
+  </p>
+  <address>
+    <%= @distributor.contact.street1 %><br>
+    <%= @distributor.contact.street2 if @distributor.contact.street2 %>
+    <%= @distributor.contact.zipcode + ' ' + @distributor.contact.town %><br>
+    <%= @distributor.contact.country %>
+  </address>
+  <p>
+    Phone: <% if @distributor.contact.phone != "" %> <%= @distributor.contact.phone %> <% else %> - <% end %> <br>
+    Mobile: <% if @distributor.contact.mobile != "" %> <%= @distributor.contact.mobile %> <% else %> - <% end %> <br>
+    E-Mail: <% if @distributor.contact.email != "" %> <%= @distributor.contact.email %> <% else %> - <% end %> <br>
+    Website: <% if @distributor.contact.website != "" %> <%= @distributor.contact.website %> <% else %> - <% end %>
+  </p>
+  <% if @distributor.contact.note != "" %>
+    <p>
+      <i class="icon-info-sign"></i>
+      <%= @distributor.contact.note %>
+    </p>
+  <% end %>
+</div>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
