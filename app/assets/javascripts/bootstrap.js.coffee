@@ -3,5 +3,5 @@ jQuery ->
   $(".tooltip").tooltip()
   $("a[rel=tooltip]").tooltip()
   
-  # fadeOut all alerts after 3 seconds
-  $('.alert').delay(3000).fadeOut('fast')
+  # fadeOut success alerts after 3 seconds
+  $('.alert-success').delay(3000).fadeOut('fast')
