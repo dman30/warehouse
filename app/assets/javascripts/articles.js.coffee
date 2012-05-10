@@ -10,7 +10,7 @@ $ ->
 			e.preventDefault()
 			$('#details').load(path)
 
-	$('#edit').live
+	$('.edit').live
 		click: (e) ->
 			path = $(@).attr 'href'
 			e.preventDefault()

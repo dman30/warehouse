@@ -41,7 +41,7 @@
         <td><%= article.installation_date %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_article_path(article), :class => 'btn btn-mini' %>
+                      edit_article_path(article), :class => 'btn btn-mini edit' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       article_path(article),
                       :method => :delete,
