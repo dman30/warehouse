@@ -1,10 +1,10 @@
 <h1><%= controller.action_name.capitalize %> Article <%= @article.name %></h1>
 
-<%= simple_form_for @article, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for @article, :remote => true, :html => { :class => 'form-horizontal', :id => 'article_form' } do |f| %>
 
-    <%= f.error_notification %>
+  <%= f.error_notification %>
 
-    <div class="well">
+  <div class="well">
 
     <%= f.input :producer_id, :collection => Producer.all, :label_method => :company_name, :prompt => "Select Producer" %>
     <%= f.input :distributor_id, :collection => Distributor.all, :label_method => :company_name, :prompt => "Select Distributor" %>
@@ -17,7 +17,7 @@
     <%= f.input :warranty_expiration, :as => :date, :prompt => true %>
     <%= f.input :installation_date, :as => :date, :prompt => true %>
     <%= f.input :note, :as => :text, :input_html => { :rows => 3 } %>
-</div>
+  </div>
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>

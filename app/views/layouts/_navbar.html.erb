@@ -17,15 +17,15 @@
           <li><%= link_to "Distributors", distributors_path %></li>
           <li><%= link_to "Employees", employees_path %></li>
           <li><%= link_to "Contacts", contacts_path %></li>
-            <% if user_signed_in? %>
-							<em>
-						    Logged in as <%= current_user.name %>
-						    ( <%= link_to('logout', signout_path) %> )
-						  </em>
-						<% else %>
-						  <em>Already have an account?</em>
-						  <%= link_to('Login', signin_path)  %>
-						<% end %>
+          <% if user_signed_in? %>
+						<em>
+					    Logged in as <%= current_user.name %>
+					    ( <%= link_to('logout', signout_path) %> )
+					  </em>
+					<% else %>
+					  <em>Already have an account?</em>
+					  <%= link_to('Login', signin_path)  %>
+					<% end %>
         </ul>
       </div>
       
