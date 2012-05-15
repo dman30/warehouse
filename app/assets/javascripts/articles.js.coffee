@@ -16,8 +16,11 @@ $ ->
 			e.preventDefault()
 			$('#content').load(path)
 
+	# attach jquery datepicker to article form
 	$('#article_purchase_date').datepicker()
-	
+	$('#article_warranty_expiration').datepicker()
+	$('#article_installation_date').datepicker()
+
 	# open modal dialog to create article
 	# $('#create_article').live
 	# 	click: (e) ->

@@ -13,9 +13,9 @@
     <%= f.input :name %>
     <%= f.input :barcode %>
     <%= f.input :serial_no %>
-    <%= f.input :purchase_date %>
-    <%= f.input :warranty_expiration, :as => :date, :prompt => true %>
-    <%= f.input :installation_date, :as => :date, :prompt => true %>
+    <%= f.input :purchase_date, :input_html => { :class => 'span2'} %>
+    <%= f.input :warranty_expiration, :input_html => { :class => 'span2'} %>
+    <%= f.input :installation_date, :input_html => { :class => 'span2'} %>
     <%= f.input :note, :as => :text, :input_html => { :rows => 3 } %>
   </div>
 
