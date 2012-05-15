@@ -22,3 +22,8 @@ en:
     #   username: 'User name to sign in.'
     #   password: 'No special characters, please.'
 
+  helpers:
+    links:
+      cancel: "Abbrechen"
+      destroy: "Löschen"
+      edit: "Bearbeiten"
