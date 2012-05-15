@@ -16,6 +16,8 @@ $ ->
 			e.preventDefault()
 			$('#content').load(path)
 
+	$('#article_purchase_date').datepicker()
+	
 	# open modal dialog to create article
 	# $('#create_article').live
 	# 	click: (e) ->
