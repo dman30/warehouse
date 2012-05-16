@@ -11,7 +11,7 @@
       <th><%= model_class.human_attribute_name(:purchase_date) %></th>
       <th><%= model_class.human_attribute_name(:employee) %></th>
       <th><%= model_class.human_attribute_name(:installation_date) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -40,14 +40,8 @@
         </td>
         <td><%= article.installation_date %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_article_path(article), :class => 'btn btn-mini edit' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      article_path(article),
-                      :method => :delete,
-                      remote: true,
-                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-                      :class => 'btn btn-mini btn-danger' %>
+          <a href="<%=edit_article_path(article)%>" class="btn btn-mini icon-edit"></a> 
+          <a href="<%=article_path(article)%>" class="btn btn-mini btn-danger icon-trash" data-method="delete" data-confirm="Are you sure?" data-remote="true"></a> 
         </td>
       </tr>
     <% end %>
