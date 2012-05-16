@@ -135,6 +135,7 @@ de:
       cancel: 'Abbrechen'
       destroy: 'Löschen'
       edit: 'Bearbeiten'
+      new: 'Neu'
   number:
     currency:
       format:
