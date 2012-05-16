@@ -1,55 +1,77 @@
-<%- model_class = @employee.class -%>
+<%- action_name = controller.action_name.capitalize -%>
+<%- model_name = @employee.class.model_name.human -%>
 
-<div class="well">
-  <h3><%=t '.title', :default => model_class.model_name.human %></h3>
-  <p>
-    <strong><%= @employee.full_name %></strong>
-  </p>
-  <p>
-    <em><%= model_class.human_attribute_name(:location) %>:</em>
-    <%= @employee.location %>
-  </p>
-  <% if @employee.note != "" %>
-    <p>
-      <em class="icon-info-sign"></em>
-      <%= @employee.note %>
-    </p>
-  <% end %> 
-</div>
+<div class="container">
+  <div class="row">
 
-<div class="well">
-  <h3>Contact</h3>
-  <p>
-    <%= @employee.contact.company_name %>
-  </p>
-  <address>
-    <%= @employee.contact.street1 %><br>
-    <%= @employee.contact.street2 if @employee.contact.street2 %>
-    <%= @employee.contact.zipcode + ' ' + @employee.contact.town %><br>
-    <%= @employee.contact.country %>
-  </address>
-  <p>
-    Phone: <% if @employee.contact.phone != "" %> <%= @employee.contact.phone %> <% else %> - <% end %> <br>
-    Mobile: <% if @employee.contact.mobile != "" %> <%= @employee.contact.mobile %> <% else %> - <% end %> <br>
-    E-Mail: <% if @employee.contact.email != "" %> <%= @employee.contact.email %> <% else %> - <% end %> <br>
-    Website: <% if @employee.contact.website != "" %> <%= @employee.contact.website %> <% else %> - <% end %>
-  </p>
-  <% if @employee.contact.note != "" %>
-    <p>
-      <i class="icon-info-sign"></i>
-      <%= @employee.contact.note %>
-    </p>
-  <% end %>
-</div>
+    <div class="span3">
+      <div class="well">
+        <legend><%= action_name + ' ' + model_name %></legend>
 
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              employees_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_employee_path(@employee), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              employee_path(@employee),
-              :method => 'delete',
-              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-              :class => 'btn btn-danger' %>
+        <p>
+          <strong><%= @employee.full_name %></strong>
+        </p>
+        <p>
+          <em class="icon-map-marker"></em>
+          <%= @employee.location %>
+        </p>
+        <% if @employee.note != "" %>
+          <p>
+            <em class="icon-info-sign"></em>
+            <%= @employee.note %>
+          </p>
+        <% end %> 
+      </div>
+
+      <div class="well">
+        <legend>Contact</legend>
+
+        <p>
+          <%= @employee.contact.company_name %>
+        </p>
+        <address>
+          <%= @employee.contact.street1 %><br>
+          <%= @employee.contact.street2 if @employee.contact.street2 %>
+          <%= @employee.contact.zipcode + ' ' + @employee.contact.town %><br>
+          <%= @employee.contact.country %>
+        </address>
+        <p>
+          Phone: <% if @employee.contact.phone != "" %> <%= @employee.contact.phone %> <% else %> - <% end %> <br>
+          Mobile: <% if @employee.contact.mobile != "" %> <%= @employee.contact.mobile %> <% else %> - <% end %> <br>
+          E-Mail: <% if @employee.contact.email != "" %> <%= @employee.contact.email %> <% else %> - <% end %> <br>
+          Website: <% if @employee.contact.website != "" %> <%= @employee.contact.website %> <% else %> - <% end %>
+        </p>
+        <% if @employee.contact.note != "" %>
+          <p>
+            <i class="icon-info-sign"></i>
+            <%= @employee.contact.note %>
+          </p>
+        <% end %>
+      </div>
+
+      <div class="well">
+        <%= link_to raw('<i class="icon-arrow-left icon-white"></i>'),
+          employees_path, 
+          :class => 'btn'  %>
+        <%= link_to raw('<i class="icon-edit icon-white"></i>'),
+          edit_employee_path(@employee), 
+          :class => 'btn' %>
+        <%= link_to raw('<i class="icon-trash icon-white"></i>'),
+          employee_path(@employee),
+          :method => 'delete',
+          :confirm => t('.confirm', 
+            :default => t("helpers.links.confirm", 
+            :default => 'Are you sure?')),
+          :class => 'btn btn-danger' %>
+      </div>
+    </div>
+
+    <div class="span9">
+      <div class="well">
+        <legend>Employee's Articles</legend>
+
+        <p>.. list all articles of this employee ..</p>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,52 +1,77 @@
-<%- model_class = @distributor.class -%>
+<%- action_name = controller.action_name.capitalize -%>
+<%- model_name = @distributor.class.model_name.human -%>
 
-<div class="well">
-  <h3><%=t '.title', :default => model_class.model_name.human %></h3>
-  <p>
-    <strong><%= @distributor.company_name %></strong>
-  </p>
-  <% if @distributor.note != "" %>
-    <p>
-      <i class="icon-info-sign"></i>
-      <%= @distributor.note %>
-    </p>
-  <% end %> 
-</div>
+<div class="container">
+  <div class="row">
 
-<div class="well">
-  <h3>Contact</h3>
-  <p>
-    <%= @distributor.contact.full_name %> 
-    <%= @distributor.company_name %>
-  </p>
-  <address>
-    <%= @distributor.contact.street1 %><br>
-    <%= @distributor.contact.street2 if @distributor.contact.street2 %>
-    <%= @distributor.contact.zipcode + ' ' + @distributor.contact.town %><br>
-    <%= @distributor.contact.country %>
-  </address>
-  <p>
-    Phone: <% if @distributor.contact.phone != "" %> <%= @distributor.contact.phone %> <% else %> - <% end %> <br>
-    Mobile: <% if @distributor.contact.mobile != "" %> <%= @distributor.contact.mobile %> <% else %> - <% end %> <br>
-    E-Mail: <% if @distributor.contact.email != "" %> <%= @distributor.contact.email %> <% else %> - <% end %> <br>
-    Website: <% if @distributor.contact.website != "" %> <%= @distributor.contact.website %> <% else %> - <% end %>
-  </p>
-  <% if @distributor.contact.note != "" %>
-    <p>
-      <i class="icon-info-sign"></i>
-      <%= @distributor.contact.note %>
-    </p>
-  <% end %>
-</div>
+    <div class="span3">
+      <div class="well">
+        <legend><%= action_name + ' ' + model_name %></legend>
 
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              distributors_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_distributor_path(@distributor), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              distributor_path(@distributor),
-              :method => 'delete',
-              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-              :class => 'btn btn-danger' %>
+        <p>
+          <strong><%= @distributor.company_name %></strong>
+        </p>
+        <% if @distributor.note != "" %>
+          <p>
+            <i class="icon-info-sign"></i>
+            <%= @distributor.note %>
+          </p>
+        <% end %> 
+      </div>
+
+      <div class="well">
+        <legend>Contact</legend>
+
+        <p>
+          <%= @distributor.contact.full_name %> 
+        </p>
+        <address>
+          <%= @distributor.contact.street1 %><br>
+          <%= @distributor.contact.street2 if @distributor.contact.street2 %>
+          <%= @distributor.contact.zipcode + ' ' + @distributor.contact.town %><br>
+          <%= @distributor.contact.country %>
+        </address>
+        <p>
+          <i class="icon-user"></i>
+          <% if @distributor.contact.phone != "" %> <%= @distributor.contact.phone %> <% else %> - <% end %> <br>
+          <i class="icon-user"></i>
+          <% if @distributor.contact.mobile != "" %> <%= @distributor.contact.mobile %> <% else %> - <% end %> <br>
+          <i class="icon-envelope"></i>
+          <% if @distributor.contact.email != "" %> <%= @distributor.contact.email %> <% else %> - <% end %> <br>
+          <i class="icon-globe"></i>
+          <% if @distributor.contact.website != "" %> <%= @distributor.contact.website %> <% else %> - <% end %>
+        </p>
+        <% if @distributor.contact.note != "" %>
+          <p>
+            <i class="icon-info-sign"></i>
+            <%= @distributor.contact.note %>
+          </p>
+        <% end %>
+      </div>
+
+      <div class="well">
+        <%= link_to raw('<i class="icon-arrow-left icon-white"></i>'),
+          distributors_path, 
+          :class => 'btn' %>
+        <%= link_to raw('<i class="icon-edit icon-white"></i>'),
+          edit_distributor_path(@distributor), 
+          :class => 'btn' %>
+        <%= link_to raw('<i class="icon-trash icon-white"></i>'),
+          distributor_path(@distributor),
+          :method => 'delete',
+          :confirm => t('.confirm', 
+            :default => t("helpers.links.confirm", 
+            :default => 'Are you sure?')),
+          :class => 'btn btn-danger' %>
+      </div>
+    </div>
+
+    <div class="span9">
+      <div class="well">
+        <legend>Distributor's Articles</legend>
+
+        <p>.. list all articles of this distributor ..</p>
+      </div>
+    </div>
+  </div>
 </div>

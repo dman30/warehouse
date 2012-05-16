@@ -1,4 +1,4 @@
-<%- action_name = controller.action_name.capitalize %>
+<%- action_name = controller.action_name.capitalize -%>
 <%- model_name = @producer.class.model_name.human -%>
 
 <div class="container">
@@ -11,39 +11,19 @@
         <p>
           <strong><%= @producer.contact.company_name %></strong>
         </p>
-        <p class="icon-info-sign">
-          <%= @producer.note %>
-        </p>
+        <% if @producer.note != "" %>
+          <p>
+            <em class="icon-info-sign"></em>
+            <%= @producer.note %>
+          </p>
+        <% end %>
       </div>
-      <div class="form-actions">
-        <%= link_to t('.back', 
-          :default => t("helpers.links.back")),
-          distributors_path, 
-          :class => 'btn'  %>
-        <%= link_to t('.edit', 
-          :default => t("helpers.links.edit")),
-          edit_distributor_path(@distributor), 
-          :class => 'btn' %>
-        <%= link_to t('.destroy', 
-          :default => t("helpers.links.destroy")),
-          distributor_path(@distributor),
-          :method => 'delete',
-          :confirm => t('.confirm', 
-            :default => t("helpers.links.confirm", 
-            :default => 'Are you sure?')),
-          :class => 'btn btn-danger' %>
-      </div>
-    </div>
-    <div class="span3">
+
       <div class="well">
-        <legend>Contact Data</legend>
+        <legend>Contact</legend>
 
         <p>
-          <%= @producer.contact.gender %> 
-          <% if @producer.contact.title != "" %>
-            (<%= @producer.contact.title %>)
-          <% end %>
-          <%= @producer.contact.first_name %> <%= @producer.contact.last_name %>
+          <%= @producer.contact.full_name %> 
         </p>
         <address>
           <%= @producer.contact.street1 %><br>
@@ -68,13 +48,29 @@
           </p>
         <% end %>
       </div>
+
+      <div class="well">
+        <%= link_to raw('<i class="icon-arrow-left icon-white"></i>'),
+          producers_path, 
+          :class => 'btn'  %>
+        <%= link_to raw('<i class="icon-edit icon-white"></i>'),
+          edit_producer_path(@producer), 
+          :class => 'btn' %>
+        <%= link_to raw('<i class="icon-trash icon-white"></i>'),
+          producer_path(@producer),
+          :method => 'delete',
+          :confirm => t('.confirm', 
+            :default => t("helpers.links.confirm", 
+            :default => 'Are you sure?')),
+          :class => 'btn btn-danger' %>
+      </div>
     </div>
 
-    <div class="span6">
+    <div class="span9">
       <div class="well">
         <legend>Producer's Articles</legend>
 
-        <p>text</p>
+        <p>.. list all articles of this producer ..</p>
       </div>
     </div>
   </div>
