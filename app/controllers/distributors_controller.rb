@@ -13,7 +13,7 @@ class DistributorsController < ApplicationController
 		@distributor = Distributor.find(params[:id])
 
     respond_to do |format|
-      format.html { render :layout => false } # show.html.erb
+      format.html # show.html.erb
       format.json { render :json => @distributor }
     end
 	end

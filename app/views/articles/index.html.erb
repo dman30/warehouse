@@ -17,23 +17,23 @@
   <tbody>
     <% @articles.each do |article| %>
       <tr id="<%=dom_id(article)%>">
-        <td><%= link_to article.name, article_path(article), :class => "article_link" %></td>
+        <td><%= link_to article.name, article_path(article) %></td>
         <td><%= article.category %></td>
         <td><% if article.producer %>
-          <%= link_to article.producer.company_name, producer_path(article.producer), :class => "article_link" %>
+          <%= link_to article.producer.company_name, producer_path(article.producer) %>
           <% else %>
             - No Producer -
           <% end %>
         </td>
         <td><% if article.distributor %>
-          <%= link_to article.distributor.company_name, distributor_path(article.distributor), :class => "article_link" %>
+          <%= link_to article.distributor.company_name, distributor_path(article.distributor) %>
           <% else %>
             - No Distributor -
           <% end %>
         </td>
         <td><%= article.purchase_date %></td>
         <td><% if article.employee %>
-          <%= link_to article.employee.full_name, employee_path(article.employee), :class => "article_link" %>
+          <%= link_to article.employee.full_name, employee_path(article.employee) %>
           <% else %>
             Warehouse
           <% end %>

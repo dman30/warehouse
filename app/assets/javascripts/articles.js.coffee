@@ -4,17 +4,18 @@
 
 $ ->
 	# show details in right #details div
-	$('.article_link').live
-		click: (e) ->
-			path = $(@).attr 'href'
-			e.preventDefault()
-			$('#details').load(path)
+	# $('.article_link').live
+	# 	click: (e) ->
+	# 		path = $(@).attr 'href'
+	# 		e.preventDefault()
+	# 		$('#details').load(path)
 
-	$('.edit').live
-		click: (e) ->
-			path = $(@).attr 'href'
-			e.preventDefault()
-			$('#content').load(path)
+	# show edit form in right #details div
+	# $('.edit').live
+	# 	click: (e) ->
+	# 		path = $(@).attr 'href'
+	# 		e.preventDefault()
+	# 		$('#content').load(path)
 
 	# attach jquery datepicker to article form
 	$('#article_purchase_date').datepicker({
