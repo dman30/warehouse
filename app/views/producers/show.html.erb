@@ -68,9 +68,27 @@
 
     <div class="span9">
       <div class="well">
-        <legend>Producer's Articles</legend>
+        <legend>Producer's Articles (<%= @producer.articles.count %>)</legend>
 
-        <p>.. list all articles of this producer ..</p>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Distributor</th>
+              <th>Purchase Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @producer.articles.each do |article| %>
+              <tr>
+                <td><%= article.name %></td>
+                <td><%= article.category %></td>
+                <td><%= article.distributor.company_name %></td>
+                <td><%= article.purchase_date %></td>
+              </tr>
+            <% end %>
+          </tbody>
       </div>
     </div>
   </div>
