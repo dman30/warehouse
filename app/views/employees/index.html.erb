@@ -3,10 +3,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:gender) %></th>
-      <th><%= model_class.human_attribute_name(:title) %></th>
-      <th><%= model_class.human_attribute_name(:first_name) %></th>
-      <th><%= model_class.human_attribute_name(:last_name) %></th>
+      <th>Name</th>
       <th><%= model_class.human_attribute_name(:location) %></th>
       <th><%= model_class.human_attribute_name(:note) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -15,10 +12,7 @@
   <tbody>
     <% @employees.each do |employee| %>
       <tr id="<%=dom_id(employee)%>">
-        <td><%= employee.gender %></td>
-        <td><%= employee.title %></td>
-        <td><%= employee.first_name %></td>
-        <td><%= link_to employee.last_name, employee_path(employee) %></td>
+        <td><%= link_to employee.full_name, employee_path(employee) %></td>
         <td><%= employee.location %></td>
         <td><%= employee.note %></td>
         <td>
