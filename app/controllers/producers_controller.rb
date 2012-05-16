@@ -37,7 +37,7 @@ class ProducersController < ApplicationController
 
     respond_to do |format|
       if @producer.save
-        format.html { redirect_to @producer, :notice => 'producer was successfully created.' }
+        format.html { redirect_to producers_url, :notice => "Producer #{@producer.company_name} was successfully created." }
         format.json { render :json => @producer, :status => :created, :location => @producer }
       else
         format.html { render :action => "new" }
