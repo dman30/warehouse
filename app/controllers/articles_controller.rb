@@ -31,11 +31,6 @@ class ArticlesController < ApplicationController
 	
 	def edit
 		@article = Article.find(params[:id])
-
-    respond_to do |format|
-      format.html { render :layout => false }
-      format.json { render :json => @article }
-    end
 	end
 	
 	def create
