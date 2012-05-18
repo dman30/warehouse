@@ -1,9 +1,13 @@
 class ArticlesController < ApplicationController	
 
   before_filter :authenticate_user!
+
+  helper_method :sort_column, :sort_direction
 	
 	def index
-		@articles = Article.page(params[:page]).per(5) #all
+		@articles = Article#.all
+      .order_by([[sort_column, sort_direction]])
+      .page(params[:page]).per(5) 
 
 		respond_to do |format|
 		format.html
@@ -71,5 +75,16 @@ class ArticlesController < ApplicationController
       format.js
     end
   end
-	
+
+  private
+
+  def sort_column
+    #Article.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    %w[name category producer distributor purchase_date employee installation_date]
+      .include?(params[:sort]) ? params[:sort] : "name"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+	end
 end

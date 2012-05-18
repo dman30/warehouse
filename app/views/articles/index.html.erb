@@ -6,8 +6,8 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:category) %></th>
+      <th><%= sortable "name" %></th>
+      <th><%= sortable "category" %></th>
       <th><%= model_class.human_attribute_name(:producer) %></th>
       <th><%= model_class.human_attribute_name(:distributor) %></th>
       <th><%= model_class.human_attribute_name(:purchase_date) %></th>
