@@ -1,6 +1,8 @@
 <%- model_class = Article.new.class -%>
 <legend><%=t '.title', :default => model_class.model_name.human.pluralize %></legend>
 
+<%= link_to t('.new', :default => t("helpers.links.new")), new_article_path, :class => 'btn btn-primary' %>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -57,8 +59,6 @@
   </tbody>
 </table>
 
-<%= paginate @articles %>
-
-<%= link_to t('.new', :default => t("helpers.links.new")), new_article_path, :class => 'btn btn-primary' %>
-
-
+<div class="pull-right">
+  <%= paginate @articles %>
+</div>
