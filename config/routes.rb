@@ -4,7 +4,10 @@ Warehouse::Application.routes.draw do
 
   # restful resources
   resources :users, :only => [ :show, :edit, :update ]
-  resources :articles
+  resources :articles do
+    # user & seo friendly page urls
+    get 'page/:page', :action => :index, :on => :collection
+  end
  	resources :contacts
  	resources :distributors
  	resources :employees
