@@ -20,6 +20,7 @@ $ ->
 	# attach jquery datepicker to article form
 	$('#article_purchase_date').datepicker({
 		format: 'yyyy-mm-dd'
+		autoclose: true
 		})
 	# $('#article_purchase_date').live
 	# 	focus: (e) ->
@@ -32,6 +33,7 @@ $ ->
 
 	$('#article_warranty_expiration').datepicker({
 		format: 'yyyy-mm-dd'
+		autoclose: true
 		})
 	# $('#article_warranty_expiration').live
 	# 	focus: (e) -> 
@@ -42,7 +44,10 @@ $ ->
 	# 			language: 'de'
 	# 		).focus()
 
-	$('#article_installation_date').datepicker()
+	$('#article_installation_date').datepicker({
+		format: 'yyyy-mm-dd'
+		autoclose: true
+		})
 
 	# open modal dialog to create article
 	# $('#create_article').live
