@@ -1,7 +1,21 @@
 <%- model_class = Article.new.class -%>
-<legend><%=t '.title', :default => model_class.model_name.human.pluralize %></legend>
+<legend><%=t '.title', :default => model_class.model_name.human.pluralize %>
 
-<%= link_to t('.new', :default => t("helpers.links.new")), new_article_path, :class => 'btn btn-primary' %>
+  <div class="pull-right">
+    <%= form_tag articles_path, :method => 'get' do %>
+      <%= hidden_field_tag :direction, params[:direction] %>
+      <%= hidden_field_tag :sort, params[:sort] %>
+      <p>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search by Name", :name => nil %>
+      </p>
+    <% end %>
+  </div>
+</legend>
+
+<div class="pull-right">
+  <%= paginate @articles %>
+</div>
 
 <table class="table table-striped">
   <thead>
@@ -59,6 +73,6 @@
   </tbody>
 </table>
 
-<div class="pull-right">
-  <%= paginate @articles %>
-</div>
+<%= link_to t('.new', :default => t("helpers.links.new")), new_article_path, :class => 'btn btn-primary' %>
+
+Showing <%= @articles.count %> of <%= Article.count %> Articles

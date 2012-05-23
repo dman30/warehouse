@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
 	
 	def index
 		@articles = Article#.all
+      .search(params[:search])
       .order_by([[sort_column, sort_direction]])
       .page(params[:page]).per(5) 
 

@@ -22,4 +22,12 @@ class Article
   referenced_in :distributor
   referenced_in :employee
 
+  def self.search(search)
+    if search != ''
+      where(name: /#{search}/i)
+    else
+      scoped
+    end
+  end
+
 end
