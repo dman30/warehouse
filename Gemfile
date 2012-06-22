@@ -24,10 +24,12 @@ group :assets do
 end
 
 group :development, :test do
+  gem 'passenger'
   gem "rspec-rails", ">= 2.8.0.rc1"
   gem "mongoid-rspec", ">= 1.4.4"
   gem "webrat", ">= 0.7.2"
   gem "factory_girl", "< 3"
   gem 'shoulda'
   gem 'spork', '~> 0.9.0.rc'
+  gem 'pry'
 end
