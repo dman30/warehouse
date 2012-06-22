@@ -1,7 +1,7 @@
 class Employee
   include Mongoid::Document
-  
-  references_many :articles
+
+  has_many :articles
   has_one :contact, as: :contactable, dependent: :destroy, :autosave => true
   accepts_nested_attributes_for :contact, :autosave => true
 
@@ -18,7 +18,7 @@ class Employee
     if self.title != ""
       self.gender + ' ' + self.title + ' ' + self.first_name + ' ' + self.last_name
     else
-      self.gender + ' ' + self.first_name + ' ' + self.last_name      
+      self.gender + ' ' + self.first_name + ' ' + self.last_name
     end
   end
 

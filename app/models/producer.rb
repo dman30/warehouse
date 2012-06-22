@@ -1,7 +1,7 @@
 class Producer
   include Mongoid::Document
 
-  references_many :articles
+  has_many :articles
   has_one :contact, as: :contactable, dependent: :destroy, :autosave => true
   accepts_nested_attributes_for :contact, :autosave => true
 
