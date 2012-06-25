@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/rweng/jquery-datatables-rails.git
+  revision: ba12807aad9e1519b49e0244eefdd1e744dad618
+  specs:
+    jquery-datatables-rails (1.10.0)
+      jquery-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -63,6 +70,9 @@ GEM
     jquery-rails (2.0.2)
       railties (>= 3.2.0, < 5.0)
       thor (~> 0.14)
+    jquery-ui-rails (1.0.0)
+      jquery-rails
+      railties (>= 3.1.0)
     json (1.7.3)
     less (2.2.1)
       commonjs (~> 0.2.6)
@@ -209,7 +219,9 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   country-select
   factory_girl (< 3)
+  jquery-datatables-rails!
   jquery-rails
+  jquery-ui-rails
   mongoid (>= 2.3.3)
   mongoid-rspec (>= 1.4.4)
   omniauth (>= 1.0.3)
