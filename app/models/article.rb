@@ -22,12 +22,4 @@ class Article
   belongs_to :distributor
   belongs_to :employee
 
-  def self.search(search)
-    if search != ''
-      where(name: /#{search}/i)
-    else
-      scoped
-    end
-  end
-
 end

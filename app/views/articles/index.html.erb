@@ -1,23 +1,11 @@
 <%- model_class = Article.new.class -%>
-<legend><%=t '.title', :default => model_class.model_name.human.pluralize %>
-
-  <div class="pull-right">
-    <%= form_tag articles_path, :method => 'get' do %>
-      <%= hidden_field_tag :direction, params[:direction] %>
-      <%= hidden_field_tag :sort, params[:sort] %>
-      <p>
-        <%= text_field_tag :search, params[:search] %>
-        <%= submit_tag "Search by Name", :name => nil %>
-      </p>
-    <% end %>
-  </div>
-</legend>
+<legend><%=t '.title', :default => model_class.model_name.human.pluralize %></legend>
 
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= sortable "name" %></th>
-      <th><%= sortable "category" %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:category) %></th>
       <th><%= model_class.human_attribute_name(:producer) %></th>
       <th><%= model_class.human_attribute_name(:distributor) %></th>
       <th><%= model_class.human_attribute_name(:purchase_date) %></th>
