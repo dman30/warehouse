@@ -12,7 +12,7 @@ gem "omniauth-kaeuferportal"
 
 gem 'simple_form'
 gem 'country-select'
-gem 'kaminari'
+# gem 'kaminari'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

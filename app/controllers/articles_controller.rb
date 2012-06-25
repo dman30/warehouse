@@ -1,21 +1,21 @@
-class ArticlesController < ApplicationController	
+class ArticlesController < ApplicationController
 
   before_filter :authenticate_user!
 
   helper_method :sort_column, :sort_direction
-	
+
 	def index
-		@articles = Article#.all
-      .search(params[:search])
-      .order_by([[sort_column, sort_direction]])
-      .page(params[:page]).per(5) 
+		@articles = Article.all
+      # .search(params[:search])
+      # .order_by([[sort_column, sort_direction]])
+      # .page(params[:page]).per(5)
 
 		respond_to do |format|
 		format.html
 		format.json { render :json => @articles }
 		end
 	end
-	
+
 	def show
 		@article = Article.find(params[:id])
 
@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
       format.json { render :json => @article }
     end
 	end
-	
+
 	def new
 		@article = Article.new
 
@@ -33,11 +33,11 @@ class ArticlesController < ApplicationController
       format.json { render :json => @article }
     end
 	end
-	
+
 	def edit
 		@article = Article.find(params[:id])
 	end
-	
+
 	def create
     @article = Article.new(params[:article])
 
@@ -51,7 +51,7 @@ class ArticlesController < ApplicationController
       end
     end
   end
-	
+
 	def update
 		@article = Article.find(params[:id])
 
@@ -65,7 +65,7 @@ class ArticlesController < ApplicationController
       end
     end
 	end
-	
+
 	def destroy
     @article = Article.find(params[:id])
     @article.destroy

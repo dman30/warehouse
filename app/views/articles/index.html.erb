@@ -13,10 +13,6 @@
   </div>
 </legend>
 
-<div class="pull-right">
-  <%= paginate @articles %>
-</div>
-
 <table class="table table-striped">
   <thead>
     <tr>
@@ -57,14 +53,14 @@
         <td><%= article.installation_date %></td>
         <td>
           <%= link_to raw('<i class="icon-edit icon-white"></i>'),
-            edit_article_path(article), 
+            edit_article_path(article),
             :class => 'btn btn-mini' %>
           <%= link_to raw('<i class="icon-trash icon-white"></i>'),
             article_path(article),
             :method => :delete,
             remote: true,
-            :confirm => t('.confirm', 
-              :default => t("helpers.links.confirm", 
+            :confirm => t('.confirm',
+              :default => t("helpers.links.confirm",
               :default => 'Are you sure?')),
             :class => 'btn btn-mini btn-danger' %>
         </td>
