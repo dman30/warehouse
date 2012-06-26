@@ -2,32 +2,20 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-$ ->
-	# attach jquery datepicker to article form
-  $('#article_purchase_date').datepicker({
-    format: 'yyyy-mm-dd'
-    autoclose: true
-  })
-
-  $('#article_warranty_expiration').datepicker({
-    format: 'yyyy-mm-dd'
-    autoclose: true
-  })
-
-  $('#article_installation_date').datepicker({
-    format: 'yyyy-mm-dd'
-    autoclose: true
-  })
-
-  $('.datatable').dataTable({
-    "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
-    "sPaginationType": "bootstrap"
-  })
-
 jQuery ->
+
   $('#articles').dataTable
-    sPaginationType: "full_numbers"
-    bJQueryUI: true
-    bProcessing: true
-    bServerSide: true
-    sAjaxSource: $('articles').data('source')
+    sPaginationType: "bootstrap"
+
+  $('#article_purchase_date').datepicker
+    format: 'yyyy-mm-dd'
+    autoclose: true
+
+  $('#article_warranty_expiration').datepicker
+    format: 'yyyy-mm-dd'
+    autoclose: true
+
+  $('#article_installation_date').datepicker
+    format: 'yyyy-mm-dd'
+    autoclose: true
+
