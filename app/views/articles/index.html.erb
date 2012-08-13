@@ -25,20 +25,28 @@
             - No Producer -
           <% end %>
         </td>
-        <td><% if article.distributor %>
-          <%= link_to article.distributor.company_name, distributor_path(article.distributor) %>
+        <td>
+          <% if article.distributor %>
+            <%= link_to article.distributor.company_name, distributor_path(article.distributor) %>
           <% else %>
             - No Distributor -
           <% end %>
         </td>
         <td><%= article.purchase_date %></td>
-        <td><% if article.employee %>
-          <%= link_to article.employee.full_name, employee_path(article.employee) %>
+        <td>
+          <% if article.employee %>
+            <%= link_to article.employee.full_name, employee_path(article.employee) %>
           <% else %>
             Warehouse
           <% end %>
         </td>
-        <td><%= article.installation_date %></td>
+        <td>
+          <% if article.installation_date %>
+            <%= article.installation_date %>
+          <% else %>
+            - not installed -
+          <% end %>
+        </td>
         <td>
           <%= link_to raw('<i class="icon-edit icon-white"></i>'),
             edit_article_path(article),
