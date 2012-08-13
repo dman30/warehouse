@@ -17,4 +17,6 @@
 # Ignore mongoid.yml
 /config/mongoid.yml
 
+# Ignore DS-Store files
+.DS_Store
 *.*~
