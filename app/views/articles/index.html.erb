@@ -4,6 +4,7 @@
 <table class="table table-striped" id="articles" >
   <thead>
     <tr>
+      <th></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:category) %></th>
       <th><%= model_class.human_attribute_name(:producer) %></th>
@@ -17,6 +18,7 @@
   <tbody>
     <% @articles.each do |article| %>
       <tr id="<%=dom_id(article)%>">
+        <td><input type="checkbox" /></td>
         <td><%= link_to article.name, article_path(article) %></td>
         <td><%= article.category %></td>
         <td><% if article.producer %>
