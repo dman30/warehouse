@@ -6,6 +6,23 @@ jQuery ->
 
   $('#articles').dataTable
     sPaginationType: "bootstrap"
+    oLanguage:
+      sInfo: "Einträge _START_ bis _END_ von insgesamt _TOTAL_"
+      sInfoEmpty: "Keine Einträge"
+      sInfoFiltered: " - gefiltert von _MAX_ Einträgen"
+      sInfoThousands: "."
+      # sLengthMenu: "Zeige _MENU_ Einträge"
+      sLengthMenu: 'Zeige <select>' +
+        '<option value="1">1</option>' +
+        '<option value="5">5</option>' +
+        '<option value="10">10</option>' +
+        '<select> Einträge'
+      sLoadingRecords: "Daten werden geladen..."
+      sSearch: "Filter:"
+      sZeroRecords: "Keine passenden Einträge gefunden"
+      oPaginate:
+        sNext: "Nächste"
+        sPrevious: "Vorherige"
 
   $('#article_purchase_date').datepicker
     format: 'yyyy-mm-dd'
@@ -19,5 +36,4 @@ jQuery ->
     format: 'yyyy-mm-dd'
     autoclose: true
 
-  $('dropdown-toggle').dropdown()
-
+  $('.dropdown-toggle').dropdown()
