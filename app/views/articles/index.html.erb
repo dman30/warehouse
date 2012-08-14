@@ -13,6 +13,7 @@
       <th><%= model_class.human_attribute_name(:employee) %></th>
       <th><%= model_class.human_attribute_name(:installation_date) %></th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -46,13 +47,19 @@
           <% if article.installation_date %>
             <%= article.installation_date %>
           <% else %>
-            - not installed -
+            <em>- not installed -</em>
           <% end %>
         </td>
         <td>
           <%= link_to raw('<i class="icon-edit icon-white"></i>'),
             edit_article_path(article),
             :class => 'btn btn-mini' %>
+
+          <%= link_to raw('<i class="icon-user icon-white"></i>'),
+          edit_article_path(article),
+          :class => 'btn btn-mini' %>
+        </td>
+        <td>
           <%= link_to raw('<i class="icon-trash icon-white"></i>'),
             article_path(article),
             :method => :delete,

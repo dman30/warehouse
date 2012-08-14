@@ -7,7 +7,7 @@ jQuery ->
   $('#articles').dataTable
     sPaginationType: "bootstrap"
     aoColumnDefs: [
-      bSortable: false, aTargets: [0, 8]
+      bSortable: false, aTargets: [0, 8, 9]
     ]
     oLanguage:
       sInfo: "Einträge _START_ bis _END_ von insgesamt _TOTAL_"
