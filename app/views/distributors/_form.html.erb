@@ -3,7 +3,7 @@
     <%= simple_form_for @distributor, :html => { :class => 'form-horizontal' } do |f| %>
 
     <div class="span12">
-      <%= f.error_notification %> 
+      <%= f.error_notification %>
     </div>
 
     <div class="span6">
@@ -13,14 +13,16 @@
         <%= f.input :company_name %>
         <%= f.input :note, :as => :text, :input_html => { :rows => 3 } %>
       </div>
+
       <div class="well">
         <%= f.submit nil, :class => 'btn btn-primary' %>
-        <%= link_to t('.cancel', 
+        <%= link_to t('.cancel',
           :default => t("helpers.links.cancel")),
-          distributors_path, 
-          :class => 'btn' %>
+          distributors_path,
+          :class => 'btn btn-danger pull-right' %>
       </div>
     </div>
+
     <div class="span6">
       <div class="well">
         <legend>Contact Data (optional)</legend>
@@ -35,5 +37,5 @@
       </div>
     </div>
     <% end %>
-  </div> 
-</div>  
+  </div>
+</div>

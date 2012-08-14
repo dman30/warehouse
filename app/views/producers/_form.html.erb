@@ -2,38 +2,37 @@
   <div class="row">
     <%= simple_form_for @producer, :html => { :class => 'form-horizontal' } do |f| %>
 
-    <div class="span12">
-      <%= f.error_notification %> 
-    </div>
-
-    <div class="span6">
-      <div class="well">
-        <legend><%= controller.action_name.capitalize %> Producer</legend>
-
-        <%= f.input :company_name %>
-        <%= f.input :note, :as => :text, :input_html => { :rows => 3 } %>
+      <div class="span12">
+        <%= f.error_notification %>
       </div>
-      <div class="well">
-        <%= f.submit nil, :class => 'btn btn-primary' %>
-        <%= link_to t('.cancel', 
-          :default => t("helpers.links.cancel")),
-          producers_path, 
-          :class => 'btn' %>
-      </div> 
-    </div>
-    <div class="span6">
-      <div class="well">
-        <legend>Contact Data (optional)</legend>
 
-        <%= f.simple_fields_for :contact do |c| %>
-          <%= c.input :gender, :collection => ['Frau', 'Herr'], :prompt => "Select gender" %>
-          <%= c.input :title, :collection => ['Dr.', 'Prof.'], :prompt => "Select title" %>
-          <%= c.input :first_name %>
-          <%= c.input :last_name %>
-          <%= render '/contact_form', :f => c %>
-        <% end %>
+      <div class="span6">
+        <div class="well">
+          <legend><%= controller.action_name.capitalize %> Producer</legend>
+
+          <%= f.input :company_name %>
+          <%= f.input :note, :as => :text, :input_html => { :rows => 3 } %>
+        </div>
+
+        <div class="well">
+          <%= f.submit nil, :class => 'btn btn-primary' %>
+          <%= link_to t('.cancel', :default => t("helpers.links.cancel")), producers_path, :class => 'btn btn-danger pull-right' %>
+        </div>
       </div>
-    </div>
+
+      <div class="span6">
+        <div class="well">
+          <legend>Contact Data (optional)</legend>
+
+          <%= f.simple_fields_for :contact do |c| %>
+            <%= c.input :gender, :collection => ['Frau', 'Herr'], :prompt => "Select gender" %>
+            <%= c.input :title, :collection => ['Dr.', 'Prof.'], :prompt => "Select title" %>
+            <%= c.input :first_name %>
+            <%= c.input :last_name %>
+            <%= render '/contact_form', :f => c %>
+          <% end %>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>
