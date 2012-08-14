@@ -19,3 +19,5 @@ jQuery ->
     format: 'yyyy-mm-dd'
     autoclose: true
 
+  $('dropdown-toggle').dropdown()
+
