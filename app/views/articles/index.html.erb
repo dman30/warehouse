@@ -1,6 +1,7 @@
 <%- model_class = Article.new.class -%>
 <legend><%=t '.title', :default => model_class.model_name.human.pluralize %></legend>
 
+<%= form_tag edit_multiple_articles_path do %>
 <table class="table table-striped" id="articles" >
   <thead>
     <tr>
@@ -19,7 +20,7 @@
   <tbody>
     <% @articles.each do |article| %>
       <tr id="<%=dom_id(article)%>">
-        <td><input type="checkbox" /></td>
+        <td><%= check_box_tag "article_ids[]", article.id %></td>
         <td><%= link_to article.name, article_path(article) %></td>
         <td><%= article.category %></td>
         <td><% if article.producer %>
@@ -73,3 +74,6 @@
     <% end %>
   </tbody>
 </table>
+
+<%= submit_tag "Edit Checked", :class => 'btn' %>
+<% end %>

@@ -5,9 +5,15 @@ Warehouse::Application.routes.draw do
   # restful resources
   resources :users, :only => [ :show, :edit, :update ]
   resources :articles do
-    # user & seo friendly page urls
-    get 'page/:page', :action => :index, :on => :collection
+    collection do
+      post :edit_multiple
+      put :update_multiple
+    end
   end
+  # resources :articles do
+  #   # user & seo friendly page urls
+  #   get 'page/:page', :action => :index, :on => :collection
+  # end
  	resources :contacts
  	resources :distributors
  	resources :employees

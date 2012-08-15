@@ -68,6 +68,19 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def edit_multiple
+    @articles = Article.find(params[:article_ids])
+  end
+
+  def update_multiple
+    @articles = Article.find(params[:article_ids])
+    @articles.each do |article|
+      article.update_attributes!(params[:article].reject { |key, value| value.blank? })
+    end
+    flash[:notice] = "Updated articles!"
+    redirect_to articles_path
+  end
+
   protected
   def find_article
     @article = Article.find(params[:id])
