@@ -2,40 +2,37 @@ class ArticlesController < ApplicationController
 
   before_filter :authenticate_user!
 
-  helper_method :sort_column, :sort_direction
+  before_filter :find_article, only: [:show, :edit, :update, :destroy]
 
-	def index
-		@articles = Article.all
+  def index
+    @articles = Article.all
 
-		respond_to do |format|
-		format.html
-		format.json { render :json => @articles }
-		end
-	end
+    respond_to do |format|
+      format.html
+      format.json { render :json => @articles }
+    end
+  end
 
-	def show
-		@article = Article.find(params[:id])
-
+  def show
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @article }
     end
-	end
+  end
 
-	def new
-		@article = Article.new
+  def new
+    @article = Article.new
 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @article }
     end
-	end
+  end
 
-	def edit
-		@article = Article.find(params[:id])
-	end
+  def edit
+  end
 
-	def create
+  def create
     @article = Article.new(params[:article])
 
     respond_to do |format|
@@ -43,28 +40,25 @@ class ArticlesController < ApplicationController
         format.html { redirect_to articles_url, :notice => 'article was successfully created.' }
         format.json { render :json => @article, :status => :created, :location => @article }
       else
-        format.html { render :action => "new" }
+        format.html { render "new" }
         format.json { render :json => @article.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-	def update
-		@article = Article.find(params[:id])
-
+  def update
     respond_to do |format|
       if @article.update_attributes(params[:article])
         format.html { redirect_to articles_url, :notice => 'Article was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render :action => "edit" }
+        format.html { render "edit" }
         format.json { render :json => @article.errors, :status => :unprocessable_entity }
       end
     end
-	end
+  end
 
-	def destroy
-    @article = Article.find(params[:id])
+  def destroy
     @article.destroy
 
     respond_to do |format|
@@ -74,15 +68,9 @@ class ArticlesController < ApplicationController
     end
   end
 
-  private
-
-  def sort_column
-    #Article.column_names.include?(params[:sort]) ? params[:sort] : "name"
-    %w[name category producer distributor purchase_date employee installation_date]
-      .include?(params[:sort]) ? params[:sort] : "name"
+  protected
+  def find_article
+    @article = Article.find(params[:id])
   end
 
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-	end
 end
