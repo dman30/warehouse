@@ -20,7 +20,7 @@
             <em class="icon-info-sign"></em>
             <%= @employee.note %>
           </p>
-        <% end %> 
+        <% end %>
       </div>
 
       <div class="well">
@@ -51,16 +51,16 @@
 
       <div class="well">
         <%= link_to raw('<i class="icon-arrow-left icon-white"></i>'),
-          employees_path, 
+          employees_path,
           :class => 'btn'  %>
         <%= link_to raw('<i class="icon-edit icon-white"></i>'),
-          edit_employee_path(@employee), 
+          edit_employee_path(@employee),
           :class => 'btn' %>
         <%= link_to raw('<i class="icon-trash icon-white"></i>'),
           employee_path(@employee),
           :method => 'delete',
-          :confirm => t('.confirm', 
-            :default => t("helpers.links.confirm", 
+          :confirm => t('.confirm',
+            :default => t("helpers.links.confirm",
             :default => 'Are you sure?')),
           :class => 'btn btn-danger' %>
       </div>
@@ -70,8 +70,35 @@
       <div class="well">
         <legend>Employee's Articles</legend>
 
-        <p>.. list all articles of this employee ..</p>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Producer</th>
+              <th>Distributor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @employee.articles.each do |article| %>
+              <tr>
+                <td></td>
+                <td><%= article.name %></td>
+                <td><%= article.category %></td>
+                <td><%= article.producer.company_name %></td>
+                <td><%= article.distributor.company_name %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
       </div>
     </div>
+
+    <div class="span9">
+      <div class="well">
+      </div>
+    </div>
+
   </div>
 </div>
