@@ -34,4 +34,5 @@ group :development, :test do
   gem 'shoulda'
   gem 'spork', '~> 0.9.0.rc'
   gem 'pry'
+  gem 'rails_best_practices'
 end
