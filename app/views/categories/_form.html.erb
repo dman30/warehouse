@@ -1,0 +1,26 @@
+<div class="container">
+    <%= simple_form_for @category, html: { class: 'form-horizontal', id: 'category_form' } do |f| %>
+
+  <div class="row">
+    <div class="span6">
+      <%= f.error_notification %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="span6">
+      <div class="well">
+        <legend><%= controller.action_name.capitalize %> Category </legend>
+
+        <%= f.input :name %>
+      </div>
+
+      <div class="well">
+        <%= f.submit nil, class: 'btn btn-primary' %>
+        <%= link_to 'Abbrechen', categories_path, class: 'btn btn-danger pull-right' %>
+      </div>
+    </div>
+
+  </div>
+    <% end %>
+</div>

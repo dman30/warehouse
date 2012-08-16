@@ -18,6 +18,7 @@ class Article
     :purchase_date, :warranty_expiration,
     :producer, :distributor
 
+  belongs_to :category
   belongs_to :producer
   belongs_to :distributor
   belongs_to :employee

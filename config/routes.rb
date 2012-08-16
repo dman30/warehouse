@@ -14,6 +14,7 @@ Warehouse::Application.routes.draw do
   #   # user & seo friendly page urls
   #   get 'page/:page', :action => :index, :on => :collection
   # end
+ 	resources :categories
  	resources :contacts
  	resources :distributors
  	resources :employees

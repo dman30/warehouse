@@ -12,7 +12,7 @@
         <legend><%= controller.action_name.capitalize %> Article</legend>
 
         <%= f.input :name %>
-        <%= f.input :category %>
+        <%= f.input :category_id, required: true, collection: Category.all, label_method: :name, prompt: "Select Category" %>
         <%= f.input :producer_id, required: true, collection: Producer.all, label_method: :company_name, prompt: "Select Producer" %>
         <%= f.input :distributor_id, required: true, collection: Distributor.all, label_method: :company_name, prompt: "Select Distributor" %>
         <%= f.input :barcode %>

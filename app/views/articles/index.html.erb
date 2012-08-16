@@ -22,8 +22,15 @@
       <tr id="<%=dom_id(article)%>">
         <td><%= check_box_tag "article_ids[]", article.id %></td>
         <td><%= link_to article.name, article_path(article) %></td>
-        <td><%= article.category %></td>
-        <td><% if article.producer %>
+        <td>
+          <% if article.category %>
+            <%= link_to article.category.name, category_path(article.category) %>
+          <% else %>
+            <em>- No Category -</em>
+          <% end %>
+        </td>
+        <td>
+          <% if article.producer %>
           <%= link_to article.producer.company_name, producer_path(article.producer) %>
           <% else %>
             <em>- No Producer -</em>

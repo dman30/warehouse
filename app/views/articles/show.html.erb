@@ -14,7 +14,11 @@
         </p>
         <p>
           <em><%= model_class.human_attribute_name(:category) %>:</em>
-          <%= @article.category %><br>
+          <% if @article.category %>
+            <%= @article.category.name %><br>
+          <% else %>
+            - No Category -
+          <% end %>
         </p>
         <p>
           <em><%= model_class.human_attribute_name(:producer) %>:</em>
@@ -58,7 +62,7 @@
           :class => 'btn'  %>
         <%= link_to raw('<i class="icon-edit icon-white"></i>'),
           edit_article_path(@article),
-          :class => 'btn edit' %>
+          :class => 'btn' %>
         <%= link_to raw('<i class="icon-trash icon-white"></i>'),
           article_path(@article),
           :method => 'delete',

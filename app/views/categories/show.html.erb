@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row">
+
+    <div class="span3">
+      <div class="well">
+        <legend>Kategorie <%= @category.name %></legend>
+
+        <p>
+          <em>Name: </em><%= @category.name %>
+        </p>
+      </div>
+
+      <div class="well">
+        <%= link_to raw('<i class="icon-arrow-left"> Zurück</i>'),
+          categories_path,
+          class: 'btn'
+        %>
+        <%= link_to raw('<i class="icon-edit"> Bearbeiten</i>'),
+          edit_category_path,
+          class: 'btn'
+        %>
+        <%= link_to raw('<i class="icon-trash"></i>'),
+          category_path(@category),
+          method: 'delete',
+          confirm: "Kategorie #{@category.name} wirklich löschen?",
+          class: 'btn btn-danger pull-right'
+        %>
+
+      </div>
+    </div>
+
+    <div class="span9">
+      <div>
+        <legend>Artikel in Kategorie <%= @category.name %></legend>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Hersteller</th>
+              <th>Verkäufer</th>
+              <th>Kaufdatum</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @category.articles.each do |article| %>
+              <tr>
+                <td><%= article.name %></td>
+                <td><%= article.producer.company_name %></td>
+                <td><%= article.distributor.company_name %></td>
+                <td><%= article.purchase_date %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
