@@ -26,14 +26,14 @@
         <td><% if article.producer %>
           <%= link_to article.producer.company_name, producer_path(article.producer) %>
           <% else %>
-            - No Producer -
+            <em>- No Producer -</em>
           <% end %>
         </td>
         <td>
           <% if article.distributor %>
             <%= link_to article.distributor.company_name, distributor_path(article.distributor) %>
           <% else %>
-            - No Distributor -
+            <em>- No Distributor -</em>
           <% end %>
         </td>
         <td><%= article.purchase_date %></td>
@@ -75,5 +75,9 @@
   </tbody>
 </table>
 
-<%= submit_tag "Edit Checked", :class => 'btn' %>
+<div class="12">
+  <div class="well">
+    <%= submit_tag "Edit Checked", :class => 'btn' %>
+  </div>
+</div>
 <% end %>
