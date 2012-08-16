@@ -78,7 +78,7 @@ class ArticlesController < ApplicationController
       article.update_attributes!(params[:article].reject { |key, value| value.blank? })
     end
     flash[:notice] = "Updated articles!"
-    redirect_to articles_path
+    redirect_to articles_url
   end
 
   protected
