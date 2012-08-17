@@ -21,7 +21,7 @@
     <% @articles.each do |article| %>
       <tr id="<%=dom_id(article)%>">
         <td><%= check_box_tag "article_ids[]", article.id %></td>
-        <td><%= link_to article.name, article_path(article) %></td>
+        <td><%= link_to article.name.truncate(30), article_path(article) %></td>
         <td>
           <% if article.category %>
             <%= link_to article.category.name, category_path(article.category) %>
