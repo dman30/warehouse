@@ -69,7 +69,13 @@ class ArticlesController < ApplicationController
   end
 
   def edit_multiple
-    @articles = Article.find(params[:article_ids])
+    if params[:article_ids]
+      @articles = Article.find(params[:article_ids])
+    else
+      # @articles = []
+      flash[:error] = "No Articles selected!"
+      redirect_to articles_url
+    end
   end
 
   def update_multiple
