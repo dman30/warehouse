@@ -42,6 +42,7 @@ class CategoriesController < ApplicationController
         format.html { render 'new' }
         format.json { render json: @category.errors, status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -66,6 +67,7 @@ class CategoriesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to categories_url }
       format.json { head :no_content }
+      format.js
     end
   end
 end
