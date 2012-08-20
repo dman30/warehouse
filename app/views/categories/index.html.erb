@@ -1,22 +1,20 @@
 <legend>Categories</legend>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= link_to category.name, category_path(category) %></td>
-        <td>
-          <%= link_to raw('<i class="icon-edit icon-white"></i>'), edit_category_path(category), class: 'btn btn-mini' %>
-          <%= link_to raw('<i class="icon-trash icon-white"></i>'), category_path(category), class: 'btn btn-mini btn-danger', method: :delete %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row">
+  <div class="span6" id="categories">
+    <%= render @categories %>
+  </div>
 
+<div class="span6">
+  <%= form_for(Category.new, remote: true) do |f| %>
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>
+
+</div>
