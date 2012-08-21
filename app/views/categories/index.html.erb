@@ -1,20 +1,24 @@
-<legend>Categories</legend>
+<div class="container">
+  <legend>Categories</legend>
 
-<div class="row">
-  <div class="span6" id="categories">
-    <%= render @categories %>
+  <div class="row">
+    <div class="span4">
+      <form class="well form-inline" action="/categories" data-remote="true" id="new_category", method="post">
+        <fieldset class="control-group">
+          <input type="text" name="category[name]" id="category_name" placeholder="Neue Kategorie">
+          <button type="submit" class="btn btn-success"><i class="icon-plus-sign"></i> Erstellen</button>
+        </fieldset>
+      </form>
+    </div>
   </div>
 
-<div class="span6">
-  <%= form_for(Category.new, remote: true) do |f| %>
-    <div class="field">
-      <%= f.label :name %><br />
-      <%= f.text_field :name %>
+  <div class="row">
+    <div class="span4">
+      <table class="table table-bordered" id="categories">
+        <tbody>
+          <%= render @categories %>
+        </tbody>
+      </table>
     </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-  <% end %>
-</div>
-
+  </div>
 </div>
