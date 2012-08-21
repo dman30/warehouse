@@ -1,17 +1,15 @@
-<%= div_for category do %>
-  <%= link_to category.name, category %>
-
-  <div class="actions">
-    <%= link_to raw('<i class="icon-edit icon-white"></i>'),
+<tr id="<%= dom_id(category)%>">
+  <td><%= link_to category.name, category %></td>
+  <td>
+    <%= link_to raw('<i class="icon-edit"></i> Editieren'),
       edit_category_path(category),
       class: 'btn btn-mini'
     %>
-    <%= link_to raw('<i class="icon-trash icon-white"></i>'),
+    <%= link_to raw('<i class="icon-trash"></i> Löschen'),
       category,
-        method: :delete,
-        remote: true,
-        class: 'btn btn-mini btn-danger'
+      method: :delete,
+      remote: true,
+      class: 'btn btn-mini btn-danger'
     %>
-  </div>
-
-<% end %>
+  </td>
+</tr>
